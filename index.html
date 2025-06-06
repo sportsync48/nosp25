@@ -1,42 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOSP25</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>National Open Slowpitch 2025</title>
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
   <style>
     body {
       font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
     }
-    .hero-section {
-      height: 55vh;
-      background-image: url('assets/banner.jpg');
-      background-size: cover;
-      background-position: center;
-      color: black;
-    }
-    .navbar {
+
+    nav.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-    .gallery-img {
-      transition: transform 0.3s;
+
+    header.hero {
+      background: url('assets/hero.jpg') no-repeat center center/cover;
+      height: 40vh;
+      position: relative;
+      color: white;
     }
-    .gallery-img:hover {
-      transform: scale(1.05);
+
+    header.hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+
+    header.hero .container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      color: #0d6efd;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+    }
+
+    footer a {
+      color: white;
+      font-size: 1.4rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: #ffc107;
     }
   </style>
 </head>
-<body>
 
-<nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #b5a167;">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center" href="index.html">
-  <img src="assets/logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;">
-  National Open Softball Slowpitch 2025</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #b5a167;">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px">
+        National Open Slowpitch 2025
+      </a>
+     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -55,74 +102,86 @@
         <li class="nav-item"><a class="nav-link" href="#statistic">Statistic</a></li>
         <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
       </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<header class="hero-section d-flex align-items-center justify-content-center text-center style="background-color: #000000;">
-  <div>
-    <h1 class="display-4 fw-bold">National Open Softball Slowpitch 2025</h1>
-    <p class="lead">Unleash the beast</p>
-    <a href="#schedule" class="btn btn-outline-light m-2">Schedule</a>
-    <a href="#standings" class="btn btn-outline-light m-2">Standings</a>
-    <a href="#statistic" class="btn btn-outline-light m-2">Statistic</a>
-  </div>
-</header>
-
-<section id="schedule" class="container my-5">
-  <h2 class="text-center mb-4">Schedule</h2>
-  <p class="text-center">Our training focuses on core skills, strategy, and fitness to prepare our players for competition while promoting leadership and cooperation.</p>
-</section>
-
-<section id="standings" class="container my-5">
-  <h2 class="text-center mb-4">standings</h2>
-  <ul class="list-group list-group-flush text-center">
-    <li class="list-group-item">June 15 – TS25 vs SMK ABC</li>
-    <li class="list-group-item">July 3 – Friendly Match with SMK XYZ</li>
-    <li class="list-group-item">August 10 – District Tournament</li>
-  </ul>
-</section>
-
-<section id="statistic" class="container my-5">
-  <h2 class="text-center mb-4">Statistic</h2>
-  <div class="row text-center">
-    <div class="col-md-4">
-      <img src="assets/player1.jpg" class="img-fluid rounded-circle mb-2" alt="Player 1">
-      <h5>Captain Aida</h5>
-      <p>Pitcher</p>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1 class="display-3 fw-bold">National Open Slowpitch 2025</h1>
+      <p class="lead mb-4">Look like a beauty, play like a beast.</p>
     </div>
-    <div class="col-md-4">
-      <img src="assets/player2.jpg" class="img-fluid rounded-circle mb-2" alt="Player 2">
-      <h5>Sarah Lim</h5>
-      <p>Shortstop</p>
-    </div>
-    <div class="col-md-4">
-      <img src="assets/player3.jpg" class="img-fluid rounded-circle mb-2" alt="Player 3">
-      <h5>Nur Alia</h5>
-      <p>Outfielder</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section id="gallery" class="container my-5">
+  <!-- Features Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Our Key Focus Areas</h2>
+    <div class="row g-4">
+      <div class="col-md-4 text-center">
+        <i class="bi bi-people-fill feature-icon mb-3"></i>
+        <h5>Leadership Development</h5>
+        <p>Empowering principals and teachers to inspire and lead effectively.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-bar-chart-line-fill feature-icon mb-3"></i>
+        <h5>Student Performance</h5>
+        <p>Enhancing academic achievements and holistic development.</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <i class="bi bi-building feature-icon mb-3"></i>
+        <h5>School Environment</h5>
+        <p>Creating safe, inclusive, and nurturing spaces for learning.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="container my-5">
   <h2 class="text-center mb-4">Photo Gallery</h2>
   <div class="row g-3">
     <div class="col-sm-6 col-md-4">
-      <img src="assets/gallery1.jpg" class="img-fluid rounded shadow gallery-img" alt="Gallery image 1">
+      <img src="assets/gallery1.jpg" class="img-fluid rounded shadow" alt="Gallery image 1">
     </div>
     <div class="col-sm-6 col-md-4">
-      <img src="assets/gallery2.jpg" class="img-fluid rounded shadow gallery-img" alt="Gallery image 2">
+      <img src="assets/gallery2.jpg" class="img-fluid rounded shadow" alt="Gallery image 2">
     </div>
     <div class="col-sm-6 col-md-4">
-      <img src="assets/gallery3.jpg" class="img-fluid rounded shadow gallery-img" alt="Gallery image 3">
+      <img src="assets/gallery3.jpg" class="img-fluid rounded shadow" alt="Gallery image 3">
     </div>
+    <!-- Add more columns as needed -->
   </div>
 </section>
 
-<footer class="bg-light text-center py-4 mt-5">
-  <p>&copy; NOSP25's Secretariat | National Open Softball Slowpitch 2025</p>
-</footer>
+  <!-- Latest News Section -->
+  <section class="container my-5">
+    <h2 class="text-center mb-4">Latest News</h2>
+    <ul class="list-group shadow">
+      <li class="list-group-item">
+        <strong>March 15, 2025:</strong> TS25 annual leadership conference announced.
+      </li>
+      <li class="list-group-item">
+        <strong>February 10, 2025:</strong> New student achievement awards introduced.
+      </li>
+      <li class="list-group-item">
+        <strong>January 20, 2025:</strong> Launch of the updated TS25 resource toolkit.
+      </li>
+    </ul>
+  </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Footer -->
+  <footer class="text-center py-4">
+    <div class="container">
+      <p>© NOSP's Secretariat | National Open Slowpitch 2025</p>
+      <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 </html>
