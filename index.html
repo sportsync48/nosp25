@@ -57,6 +57,76 @@
       color: #0d6efd;
     }
 
+    .image-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap; /* allow wrapping on small screens */
+  margin: 2rem 0;
+}
+
+.image-hover-container {
+  position: relative;
+  width: 300px; /* adjust as needed */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-hover-container img {
+  width: 100%;
+  display: block;
+  height: auto;
+  border-radius: 10px;
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.hover-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 123, 255, 0.85);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.image-hover-container:hover .hover-button,
+.image-hover-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.image-hover-container:hover .hover-button {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Mobile: always show */
+@media (max-width: 768px) {
+  .hover-button,
+  .image-overlay {
+    opacity: 1 !important;
+  }
+
+  .image-row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
     .carousel-container {
       max-width: 800px;
       height: 500px;
@@ -168,22 +238,25 @@
   </header>
 
   <!-- Features Section -->
-  <section class="container my-5">
-    <div class="row g-4">
-      <div class="col-md-4 text-center">
-        <i class="bi bi-calendar-fill feature-icon mb-3"></i>
-        <h5>Schedule</h5>
-      </div>
-      <div class="col-md-4 text-center">
-        <i class="bi bi-bar-chart-line-fill feature-icon mb-3"></i>
-        <h5>Standings</h5>
-      </div>
-      <div class="col-md-4 text-center">
-        <i class="bi bi-calculator feature-icon mb-3"></i>
-        <h5>Statistic</h5>
-      </div>
-    </div>
-  </section>
+<div class="image-row">
+  <div class="image-hover-container">
+    <img src="assets/image1.jpg" alt="Image 1">
+    <div class="image-overlay"></div>
+    <a href="#" class="hover-button">Button 1</a>
+  </div>
+
+  <div class="image-hover-container">
+    <img src="assets/image2.jpg" alt="Image 2">
+    <div class="image-overlay"></div>
+    <a href="#" class="hover-button">Button 2</a>
+  </div>
+
+  <div class="image-hover-container">
+    <img src="assets/image3.jpg" alt="Image 3">
+    <div class="image-overlay"></div>
+    <a href="#" class="hover-button">Button 3</a>
+  </div>
+</div>
 
 
   <!-- Carousel Section -->
