@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>National Open Slowpitch 2025</title>
 
   <!-- Open Graph Meta Tags for Social Sharing -->
-  <meta property="og:title" content="National Open Slowpitch 2025">
-  <meta property="og:description" content="One team, one dream, one win. Join us for NOSP 2025!">
-  <meta property="og:image" content="https://sportsync48.github.io/nosp25/assets/nosp25thumbnail.png">
-  <meta property="og:url" content="https://bit.ly/NOSP25/">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  
+  <meta property="og:title" content="National Open Slowpitch 2025" />
+  <meta property="og:description" content="One team, one dream, one win. Join us for NOSP 2025!" />
+  <meta property="og:image" content="https://sportsync48.github.io/nosp25/assets/nosp25thumbnail.png" />
+  <meta property="og:url" content="https://bit.ly/NOSP25/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap" rel="stylesheet" />
 
   <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
+      padding-right: 0; /* prevent horizontal scroll */
     }
 
     nav.navbar {
@@ -35,30 +36,27 @@
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-        /* Smaller navbar toggler icon */
+    /* Navbar toggler smaller */
     .navbar-toggler {
-      padding: 0.25rem 0.45rem; /* smaller button padding */
+      padding: 0.25rem 0.45rem;
     }
-    
     .navbar-toggler-icon {
       width: 1rem;
       height: 1rem;
     }
 
-        /* Adjust title font size on small screens */
+    /* Title font size adjustments */
     .title-text {
-      font-size: 1.25rem; /* default */
+      font-size: 1.25rem;
     }
-    
     @media (max-width: 768px) {
       .title-text {
-        font-size: 1rem; /* reduce on small screens */
+        font-size: 1rem;
       }
     }
-    
     @media (max-width: 576px) {
       .title-text {
-        font-size: 0.9rem; /* even smaller on extra small */
+        font-size: 0.9rem;
       }
     }
 
@@ -68,7 +66,6 @@
       position: relative;
       color: white;
     }
-
     header.hero::before {
       content: '';
       position: absolute;
@@ -76,7 +73,6 @@
       background-color: rgba(0, 0, 0, 0.55);
       z-index: 0;
     }
-
     header.hero .container {
       position: relative;
       z-index: 1;
@@ -87,34 +83,27 @@
       text-align: center;
     }
 
-    .feature-icon {
-      font-size: 3rem;
-      color: #0d6efd;
-    }
-
+    /* Image hover buttons */
     .image-row {
       display: flex;
       gap: 20px;
       justify-content: center;
-      flex-wrap: wrap; /* allow wrapping on small screens */
+      flex-wrap: wrap;
       margin: 2rem 0;
     }
-
     .image-hover-container {
       position: relative;
-      width: 200px; /* adjust as needed */
+      width: 200px;
       height: 80px;
       overflow: hidden;
       border-radius: 10px;
     }
-
     .image-hover-container img {
       width: 100%;
       display: block;
       height: auto;
       border-radius: 10px;
     }
-  
     .image-overlay {
       position: absolute;
       inset: 0;
@@ -123,13 +112,12 @@
       transition: opacity 0.3s ease;
       z-index: 1;
     }
-  
     .hover-button {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(130, 130, 130, 0.7);  /* subtle background */
+      background-color: rgba(130, 130, 130, 0.7);
       color: white;
       padding: 4px 12px;
       font-size: 0.9rem;
@@ -140,89 +128,159 @@
       transition: opacity 0.3s ease, transform 0.3s ease;
       z-index: 2;
     }
-
     .image-hover-container:hover .hover-button,
     .image-hover-container:hover .image-overlay {
       opacity: 1;
     }
-  
     .image-hover-container:hover .hover-button {
       opacity: 1;
       transform: translate(-50%, -50%) scale(1.05);
     }
-    
-    /* Mobile: always show */
     @media (max-width: 768px) {
       .hover-button,
       .image-overlay {
         opacity: 1 !important;
       }
-  
       .image-row {
         flex-direction: column;
         align-items: center;
       }
     }
 
-      .carousel-container {
-        max-width: 800px;
-        height: 500px;
-        margin: 3rem auto;
-        overflow: hidden;
-        position: relative;
-        border-radius: 12px;
-        box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-      }
-  
-      .carousel-slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        width: 300%; /* 3 slides */
-      }
-  
-      .carousel-slides img {
+    .carousel-container {
+      max-width: 800px;
+      height: 500px;
+      margin: 3rem auto;
+      overflow: hidden;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+      width: 300%;
+    }
+    .carousel-slides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+      display: block;
+    }
+    .carousel-dots {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+    .carousel-dots span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 0 4px;
+      background-color: #ccc;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .carousel-dots span.active {
+      background-color: #333;
+    }
+
+    footer {
+      background-color: #b2a367;
+      color: black;
+    }
+    footer a {
+      color: black;
+      font-size: 1.4rem;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+    footer a:hover {
+      color: #ffc107;
+    }
+
+    /* Announcements Tab */
+    .announcement-wrapper {
+      position: fixed;
+      top: 80px;
+      right: 10px;
+      width: 300px;
+      max-height: 70vh;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 0.15);
+      padding: 0.5rem 1rem 1rem 1rem;
+      overflow-y: auto;
+      z-index: 1100;
+      font-size: 0.9rem;
+    }
+    .announcement-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .announcement-header h5 {
+      margin: 0;
+      font-weight: 600;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .announcement-header h5 .badge {
+      font-size: 0.7rem;
+      background-color: #dc3545;
+      color: white;
+      padding: 0.15em 0.4em;
+      border-radius: 0.25rem;
+    }
+    .announcement-content {
+      margin-top: 0.5rem;
+    }
+    .announcement-content ul {
+      padding-left: 1rem;
+      margin-bottom: 0;
+    }
+    .announcement-content ul li {
+      padding: 0.3rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+    /* Collapsible caret */
+    .announcement-toggle-icon {
+      transition: transform 0.3s ease;
+      font-size: 1.1rem;
+      color: #666;
+    }
+    .collapsed .announcement-toggle-icon {
+      transform: rotate(-90deg);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 992px) {
+      .announcement-wrapper {
+        position: fixed;
+        top: 56px;
+        right: 0;
         width: 100%;
-        height: 100%;
-        object-fit: cover;
-        flex-shrink: 0;
-        display: block;
+        max-height: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        z-index: 1050;
       }
-  
-      .carousel-dots {
-        text-align: center;
+      .announcement-content {
+        display: none;
+      }
+      .announcement-wrapper.show-content .announcement-content {
+        display: block;
         margin-top: 0.5rem;
       }
-  
-      .carousel-dots span {
-        display: inline-block;
-        width: 12px;
-        height: 12px;
-        margin: 0 4px;
-        background-color: #ccc;
-        border-radius: 50%;
-        cursor: pointer;
-        transition: background-color 0.3s;
-      }
-  
-      .carousel-dots span.active {
-        background-color: #333;
-      }
-      
-      footer {
-        background-color: #b2a367;
-        color: black;
-      }
-  
-      footer a {
-        color: black;
-        font-size: 1.4rem;
-        margin: 0 0.5rem;
-        transition: color 0.3s ease;
-      }
-  
-      footer a:hover {
-        color: #ffc107;
-      }
+    }
+
   </style>
 </head>
 
@@ -230,19 +288,26 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #b5a167;">
     <div class="container d-flex justify-content-between align-items-center">
-  
-      <!-- Logo and Title (inline, always full title) -->
+
+      <!-- Logo and Title -->
       <div class="d-flex align-items-center">
-        <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;">
+        <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;" />
         <span class="navbar-brand mb-0 fw-bold title-text">National Open Slowpitch 2025</span>
       </div>
-  
-      <!-- Burger Button (aligned right) -->
-      <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+
+      <!-- Burger Button -->
+      <button
+        class="navbar-toggler border-0 p-1"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon" style="width: 1rem; height: 1rem;"></span>
       </button>
-  
+
       <!-- Navbar links -->
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
@@ -265,100 +330,154 @@
             </ul>
           </li>
           <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero section -->
   <header class="hero">
     <div class="container">
-      <h1 class="display-3 fw-bold">National Open Slowpitch 2025</h1>
-      <p class="lead mb-4">One team, one dream, one win</p>
+      <h1 class="display-5 fw-bold">One Team, One Dream, One Win</h1>
+      <p>Join us for National Open Slowpitch 2025!</p>
     </div>
   </header>
 
-  <!-- Features Section -->
-<div class="image-row">
-  <div class="image-hover-container">
-    <img src="assets/button1.png" alt="Button 1">
-    <div class="image-overlay"></div>
-    <a href="#" class="hover-button">Schedule</a>
-  </div>
+  <!-- Main content container -->
+  <main class="container my-4">
+    <!-- Your existing content here -->
 
-  <div class="image-hover-container">
-<img src="assets/button2.png" alt="Button 2">
-    <div class="image-overlay"></div>
-    <a href="#" class="hover-button">Standings</a>
-  </div>
+    <!-- Example Images with Hover Buttons -->
+    <section class="image-row">
+      <div class="image-hover-container">
+        <img src="assets/schedule.png" alt="Schedule" />
+        <div class="image-overlay"></div>
+        <a href="#schedule" class="hover-button">View Schedule</a>
+      </div>
+      <div class="image-hover-container">
+        <img src="assets/standings.png" alt="Standings" />
+        <div class="image-overlay"></div>
+        <a href="#standings" class="hover-button">View Standings</a>
+      </div>
+      <div class="image-hover-container">
+        <img src="assets/statistics.png" alt="Statistics" />
+        <div class="image-overlay"></div>
+        <a href="#statistics" class="hover-button">View Statistics</a>
+      </div>
+    </section>
 
-  <div class="image-hover-container">
-<img src="assets/button3.png" alt="Button 3">
-    <div class="image-overlay"></div>
-    <a href="#" class="hover-button">Statistic</a>
-  </div>
-</div>
-  
-  <!-- Carousel Section -->
-<section class="carousel-container">
-  <div class="carousel-slides">
-    <img src="assets/slide1.jpg" alt="Slide 1">
-    <img src="assets/slide2.jpg" alt="Slide 2">
-    <img src="assets/slide3.jpg" alt="Slide 3">
-  </div>
-  <div class="carousel-dots"></div>
-</section>
-
-
-  <!-- Footer -->
-  <footer class="text-center py-4">
-    <div class="container">
-      <p class="fw-medium fs-5 fs-md-6 fs-sm-6 fs-xs-6 mb-2">
-        © NOSP's Secretariat | National Open Slowpitch 2025
-      </p>
-      <div>
-        <a href="#" aria-label="Facebook"><i class="bi bi-facebook fs-4"></i></a>
-        <a href="#" aria-label="Twitter"><i class="bi bi-twitter fs-4"></i></a>
-        <a href="#" aria-label="Instagram"><i class="bi bi-instagram fs-4"></i></a>
-        <a href="#" aria-label="Tiktok"><i class="bi bi-tiktok fs-4"></i></a>
+    <!-- Carousel placeholder -->
+    <div class="carousel-container" aria-label="Image Carousel">
+      <div class="carousel-slides">
+        <img src="assets/image1.jpg" alt="Slide 1" />
+        <img src="assets/image2.jpg" alt="Slide 2" />
+        <img src="assets/image3.jpg" alt="Slide 3" />
+      </div>
+      <div class="carousel-dots" role="tablist">
+        <span class="active" role="tab" aria-selected="true" tabindex="0" aria-controls="slide1" aria-label="Slide 1"></span>
+        <span role="tab" aria-selected="false" tabindex="-1" aria-controls="slide2" aria-label="Slide 2"></span>
+        <span role="tab" aria-selected="false" tabindex="-1" aria-controls="slide3" aria-label="Slide 3"></span>
       </div>
     </div>
+
+  </main>
+
+  <!-- Announcements Tab (Right side) -->
+  <aside class="announcement-wrapper collapse show" id="announcementTab" aria-label="Announcements">
+    <div class="announcement-header" id="announcementToggle" role="button" tabindex="0" aria-expanded="true" aria-controls="announcementContent">
+      <h5>
+        <i class="bi bi-megaphone-fill" aria-hidden="true"></i> Announcements
+        <span class="badge bg-danger ms-2" id="newBadge" style="display:none;">New</span>
+      </h5>
+      <i class="bi bi-caret-down-fill announcement-toggle-icon"></i>
+    </div>
+    <div class="announcement-content" id="announcementContent">
+      <ul>
+        <!-- Mark new announcements with .new class -->
+        <li class="new">April 12: Registration deadline extended to April 30!</li>
+        <li>April 10: Updated match schedule published.</li>
+        <li class="new">April 9: New safety protocols released.</li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Footer -->
+  <footer class="text-center py-3">
+    <div>
+      <a href="https://twitter.com/nosp2025" target="_blank" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
+      <a href="https://facebook.com/nosp2025" target="_blank" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+      <a href="mailto:contact@nosp2025.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+    </div>
+    <div class="mt-2">© 2025 National Open Slowpitch</div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
+  <!-- Bootstrap JS bundle -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<script>
-  const slides = document.querySelector('.carousel-slides');
-  const dotsContainer = document.querySelector('.carousel-dots');
-  const totalSlides = slides.children.length;
-  let currentIndex = 0;
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const announcementWrapper = document.querySelector('.announcement-wrapper');
+      const announcementContent = document.getElementById('announcementContent');
+      const announcementToggle = document.getElementById('announcementToggle');
+      const newBadge = document.getElementById('newBadge');
 
-  // Create dots dynamically
-  for (let i = 0; i < totalSlides; i++) {
-    const dot = document.createElement('span');
-    if (i === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => goToSlide(i));
-    dotsContainer.appendChild(dot);
-  }
+      // Check if there are any announcements
+      const announcements = announcementContent.querySelectorAll('li');
+      if (announcements.length === 0) {
+        announcementWrapper.style.display = 'none'; // Hide tab if no announcements
+        return;
+      }
 
-  const dots = document.querySelectorAll('.carousel-dots span');
+      // Show "New" badge if there are any .new announcements
+      const newAnnouncements = announcementContent.querySelectorAll('li.new');
+      if (newAnnouncements.length > 0) {
+        newBadge.style.display = 'inline-block';
+      }
 
-  function goToSlide(index) {
-    currentIndex = index;
-    slides.style.transform = `translateX(-${100 * index}%)`;
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[index].classList.add('active');
-  }
+      // Accessibility: Toggle collapse on click or keyboard Enter/Space
+      announcementToggle.addEventListener('click', () => {
+        toggleAnnouncement();
+      });
+      announcementToggle.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleAnnouncement();
+        }
+      });
 
-  function nextSlide() {
-    currentIndex = (currentIndex + 1) % totalSlides;
-    goToSlide(currentIndex);
-  }
+      function toggleAnnouncement() {
+        if (announcementContent.style.display === 'none' || announcementContent.style.display === '') {
+          announcementContent.style.display = 'block';
+          announcementToggle.setAttribute('aria-expanded', 'true');
+          announcementWrapper.classList.remove('collapsed');
+          announcementWrapper.classList.add('show-content');
+        } else {
+          announcementContent.style.display = 'none';
+          announcementToggle.setAttribute('aria-expanded', 'false');
+          announcementWrapper.classList.add('collapsed');
+          announcementWrapper.classList.remove('show-content');
+        }
+      }
 
-  setInterval(nextSlide, 4000); // Auto-slide every 4 seconds
-</script>
+      // Start collapsed on smaller screens
+      function checkScreenWidth() {
+        if (window.innerWidth < 992) {
+          announcementContent.style.display = 'none';
+          announcementToggle.setAttribute('aria-expanded', 'false');
+          announcementWrapper.classList.add('collapsed');
+          announcementWrapper.classList.remove('show-content');
+        } else {
+          announcementContent.style.display = 'block';
+          announcementToggle.setAttribute('aria-expanded', 'true');
+          announcementWrapper.classList.remove('collapsed');
+          announcementWrapper.classList.add('show-content');
+        }
+      }
+      checkScreenWidth();
 
+      window.addEventListener('resize', checkScreenWidth);
+    });
+  </script>
 </body>
 </html>
