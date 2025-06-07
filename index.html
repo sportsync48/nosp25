@@ -14,26 +14,13 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Bootstrap CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-
-  <!-- Google Fonts: Poppins -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap"
-    rel="stylesheet"
-  />
-
-  <!-- Bootstrap Icons -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-    rel="stylesheet"
-  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 
   <style>
     body {
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -41,12 +28,12 @@
       position: sticky;
       top: 0;
       z-index: 1030;
+      background-color: #b5a167;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
 
-    /* Smaller navbar toggler icon */
     .navbar-toggler {
-      padding: 0.25rem 0.45rem; /* smaller button padding */
+      padding: 0.25rem 0.45rem;
     }
 
     .navbar-toggler-icon {
@@ -54,32 +41,31 @@
       height: 1rem;
     }
 
-    /* Adjust title font size on small screens */
     .title-text {
-      font-size: 1.25rem; /* default */
+      font-size: 1.25rem;
     }
 
     @media (max-width: 768px) {
       .title-text {
-        font-size: 1rem; /* reduce on small screens */
+        font-size: 1rem;
       }
     }
 
     @media (max-width: 576px) {
       .title-text {
-        font-size: 0.9rem; /* even smaller on extra small */
+        font-size: 0.9rem;
       }
     }
 
     header.hero {
-      background: url("assets/hero.jpg") no-repeat center center/cover;
+      background: url('assets/hero.jpg') no-repeat center center/cover;
       height: 30vh;
       position: relative;
       color: white;
     }
 
     header.hero::before {
-      content: "";
+      content: '';
       position: absolute;
       inset: 0;
       background-color: rgba(0, 0, 0, 0.55);
@@ -96,45 +82,20 @@
       text-align: center;
     }
 
-    .feature-icon {
-      font-size: 3rem;
-      color: #0d6efd;
-    }
-
-    /* Layout container for images + announcement side by side */
-    .main-content-row {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      margin: 2rem 0;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      position: relative;
-    }
-
-    /* Hover image container */
-    .image-row {
-      display: flex;
-      gap: 20px;
-      justify-content: center;
-      flex-wrap: nowrap;
-      /* width set so announcement fits on right */
-      max-width: 640px;
-    }
-
     .image-hover-container {
       position: relative;
-      width: 200px;
+      width: 100%;
+      max-width: 200px;
       height: 80px;
+      margin: 0.5rem;
       overflow: hidden;
       border-radius: 10px;
-      cursor: pointer;
     }
 
     .image-hover-container img {
       width: 100%;
-      display: block;
       height: auto;
+      display: block;
       border-radius: 10px;
     }
 
@@ -145,7 +106,6 @@
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: 1;
-      border-radius: 10px;
     }
 
     .hover-button {
@@ -153,7 +113,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background-color: rgba(130, 130, 130, 0.7); /* subtle background */
+      background-color: rgba(130, 130, 130, 0.7);
       color: white;
       padding: 4px 12px;
       font-size: 0.9rem;
@@ -163,7 +123,6 @@
       opacity: 0;
       transition: opacity 0.3s ease, transform 0.3s ease;
       z-index: 2;
-      pointer-events: none;
     }
 
     .image-hover-container:hover .hover-button,
@@ -171,88 +130,13 @@
       opacity: 1;
     }
 
-    .image-hover-container:hover .hover-button {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1.05);
-      pointer-events: auto;
-    }
-
-    /* Mobile: always show buttons and overlays */
     @media (max-width: 768px) {
       .hover-button,
       .image-overlay {
         opacity: 1 !important;
-        pointer-events: auto;
-      }
-
-      .image-row {
-        flex-direction: column;
-        align-items: center;
       }
     }
 
-    /* Announcement tab styles */
-    .announcement-wrapper {
-      width: 280px;
-      background: #b2a367;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-      color: black;
-      font-family: "Poppins", sans-serif;
-      user-select: none;
-      z-index: 1100;
-      display: flex;
-      flex-direction: column;
-      padding: 15px;
-      /* Align height visually with hover images */
-      min-height: 120px;
-    }
-
-    .announcement-wrapper h4 {
-      margin-top: 0;
-      font-weight: 600;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      user-select: text;
-    }
-
-    .announcement-content {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      max-height: 300px;
-      overflow-y: auto;
-      font-size: 0.9rem;
-      user-select: text;
-    }
-
-    .announcement-content li {
-      margin-bottom: 10px;
-      border-left: 4px solid transparent;
-      padding-left: 8px;
-    }
-
-    .announcement-content li.new {
-      border-left-color: #dc3545;
-      font-weight: 600;
-    }
-
-    /* Responsive: stack on small screens */
-    @media (max-width: 992px) {
-      .main-content-row {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .announcement-wrapper {
-        width: 90%;
-        max-width: 320px;
-        margin-top: 30px;
-        min-height: auto;
-      }
-    }
-
-    /* Carousel styles */
     .carousel-container {
       max-width: 800px;
       height: 500px;
@@ -266,7 +150,7 @@
     .carousel-slides {
       display: flex;
       transition: transform 0.5s ease-in-out;
-      width: 300%; /* 3 slides */
+      width: 300%;
     }
 
     .carousel-slides img {
@@ -297,6 +181,11 @@
       background-color: #333;
     }
 
+    .announcement-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #b5a167;
+    }
+
     footer {
       background-color: #b2a367;
       color: black;
@@ -317,47 +206,20 @@
 
 <body>
   <!-- Navbar -->
-  <nav
-    class="navbar navbar-expand-lg sticky-top"
-    style="background-color: #b5a167"
-  >
+  <nav class="navbar navbar-expand-lg">
     <div class="container d-flex justify-content-between align-items-center">
-      <!-- Logo and Title (inline, always full title) -->
       <div class="d-flex align-items-center">
-        <img
-          src="assets/nosp25logo.png"
-          alt="NOSP25 Logo"
-          style="height: 40px; margin-right: 10px"
-        />
-        <span class="navbar-brand mb-0 fw-bold title-text"
-          >National Open Slowpitch 2025</span
-        >
+        <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;" />
+        <span class="navbar-brand mb-0 fw-bold title-text">National Open Slowpitch 2025</span>
       </div>
-
-      <!-- Burger Button (aligned right) -->
-      <button
-        class="navbar-toggler border-0 p-1"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon" style="width: 1rem; height: 1rem"></span>
+      <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+        <span class="navbar-toggler-icon"></span>
       </button>
-
-      <!-- Navbar links -->
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              data-bs-toggle="dropdown"
-              >Committee</a
-            >
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Committee</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#committee">Committee</a></li>
               <li><a class="dropdown-item" href="#subcommittee">SubCommittee</a></li>
@@ -367,12 +229,7 @@
           <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
           <li class="nav-item"><a class="nav-link" href="#standings">Standings</a></li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              data-bs-toggle="dropdown"
-              >Statistic</a
-            >
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Statistic</a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#batter">Batter</a></li>
               <li><a class="dropdown-item" href="#pitcher">Pitcher</a></li>
@@ -389,145 +246,108 @@
   <header class="hero">
     <div class="container">
       <h1 class="display-3 fw-bold">National Open Slowpitch 2025</h1>
-      <p class="lead">One team, one dream, one win.</p>
+      <p class="lead mb-4">One team, one dream, one win</p>
     </div>
   </header>
 
-  <!-- Main Content: Hover images + Announcement -->
-  <section class="main-content-row container">
-    <!-- Hover images row -->
-    <div class="image-row" aria-label="Quick access buttons">
-      <div class="image-hover-container">
-        <img src="assets/button1.png" alt="Teams" />
-        <div class="image-overlay"></div>
-        <a href="#team" class="hover-button" tabindex="0">Teams</a>
+  <!-- Features Section: Hover Buttons + Announcement -->
+  <div class="container my-4">
+    <div class="row">
+      <!-- Image Hover Buttons (3/4 width) -->
+      <div class="col-md-9 d-flex flex-wrap justify-content-start">
+        <div class="image-hover-container">
+          <img src="assets/button1.png" alt="Button 1" />
+          <div class="image-overlay"></div>
+          <a href="#" class="hover-button">Teams</a>
+        </div>
+        <div class="image-hover-container">
+          <img src="assets/button2.png" alt="Button 2" />
+          <div class="image-overlay"></div>
+          <a href="#" class="hover-button">Schedule</a>
+        </div>
+        <div class="image-hover-container">
+          <img src="assets/button3.png" alt="Button 3" />
+          <div class="image-overlay"></div>
+          <a href="#" class="hover-button">Standings</a>
+        </div>
+        <div class="image-hover-container">
+          <img src="assets/button4.png" alt="Button 4" />
+          <div class="image-overlay"></div>
+          <a href="#" class="hover-button">Statistic</a>
+        </div>
       </div>
-      <div class="image-hover-container">
-        <img src="assets/button2.png" alt="Schedule" />
-        <div class="image-overlay"></div>
-        <a href="#schedule" class="hover-button" tabindex="0">Schedule</a>
-      </div>
-      <div class="image-hover-container">
-        <img src="assets/button3.png" alt="Standings" />
-        <div class="image-overlay"></div>
-        <a href="#standings" class="hover-button" tabindex="0">Standings</a>
-      </div>
-      <div class="image-hover-container">
-        <img src="assets/button4.png" alt="Statistic" />
-        <div class="image-overlay"></div>
-        <a href="#statistic" class="hover-button" tabindex="0">Statistic</a>
+
+      <!-- Announcement Box (1/4 width) -->
+      <div class="col-md-3">
+        <div class="announcement-box p-3 rounded shadow-sm">
+          <h5 class="fw-bold mb-3">Announcement</h5>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2">🏆 Final match rescheduled to 4:00 PM</li>
+            <li class="mb-2">📝 Team registration closes tomorrow</li>
+            <li class="mb-2">📸 Gallery updated with Day 2 photos</li>
+          </ul>
+        </div>
       </div>
     </div>
-
-    <!-- Announcement tab -->
-    <aside
-      class="announcement-wrapper"
-      aria-label="Announcements"
-      role="complementary"
-    >
-      <h4>Announcements</h4>
-      <ul class="announcement-content">
-        <li class="new">Registration deadline extended to July 31.</li>
-        <li>Schedule for quarterfinals released.</li>
-        <li class="new">New team added from East Coast.</li>
-        <li>Venue map available on the info page.</li>
-      </ul>
-    </aside>
-  </section>
+  </div>
 
   <!-- Carousel Section -->
-  <section class="carousel-container container">
-    <div class="carousel-slides" id="carouselSlides">
-      <img
-        src="assets/slide1.jpg"
-        alt="Slowpitch Game Action 1"
-        loading="lazy"
-        decoding="async"
-      />
-      <img
-        src="assets/slide2.jpg"
-        alt="Slowpitch Game Action 2"
-        loading="lazy"
-        decoding="async"
-      />
-      <img
-        src="assets/slide3.jpg"
-        alt="Slowpitch Game Action 3"
-        loading="lazy"
-        decoding="async"
-      />
+  <section class="carousel-container">
+    <div class="carousel-slides">
+      <img src="assets/slide1.jpg" alt="Slide 1" />
+      <img src="assets/slide2.jpg" alt="Slide 2" />
+      <img src="assets/slide3.jpg" alt="Slide 3" />
     </div>
-    <div class="carousel-dots" id="carouselDots" aria-label="Carousel navigation"></div>
+    <div class="carousel-dots"></div>
   </section>
 
   <!-- Footer -->
-  <footer class="text-center p-3 mt-4">
-    <a href="https://twitter.com/NOSP25" aria-label="Twitter">
-      <i class="bi bi-twitter"></i>
-    </a>
-    <a href="https://facebook.com/NOSP25" aria-label="Facebook">
-      <i class="bi bi-facebook"></i>
-    </a>
-    <a href="https://instagram.com/NOSP25" aria-label="Instagram">
-      <i class="bi bi-instagram"></i>
-    </a>
-    <a href="https://tiktok.com/NOSP25" aria-label="Tiktok">
-      <i class="bi bi-tiktok"></i>
-    </a>
+  <footer class="text-center py-4">
+    <div class="container">
+      <p class="fw-medium fs-5 mb-2">
+        © NOSP's Secretariat | National Open Slowpitch 2025
+      </p>
+      <div>
+        <a href="#"><i class="bi bi-facebook fs-4"></i></a>
+        <a href="#"><i class="bi bi-twitter fs-4"></i></a>
+        <a href="#"><i class="bi bi-instagram fs-4"></i></a>
+        <a href="#"><i class="bi bi-tiktok fs-4"></i></a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Bootstrap JS Bundle -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"
-  ></script>
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Carousel JS -->
+  <!-- Carousel Script -->
   <script>
-    (function () {
-      const slidesContainer = document.getElementById("carouselSlides");
-      const dotsContainer = document.getElementById("carouselDots");
-      const totalSlides = slidesContainer.children.length;
-      let currentIndex = 0;
-      let slideWidth = slidesContainer.children[0].clientWidth;
+    const slides = document.querySelector('.carousel-slides');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    const totalSlides = slides.children.length;
+    let currentIndex = 0;
 
-      // Create dots
-      for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement("span");
-        dot.setAttribute("role", "button");
-        dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
-        dot.tabIndex = 0;
-        dot.addEventListener("click", () => goToSlide(i));
-        dot.addEventListener("keydown", (e) => {
-          if (e.key === "Enter" || e.key === " ") {
-            e.preventDefault();
-            goToSlide(i);
-          }
-        });
-        dotsContainer.appendChild(dot);
-      }
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      dotsContainer.appendChild(dot);
+    }
 
-      function updateActiveDot() {
-        [...dotsContainer.children].forEach((dot, idx) => {
-          dot.classList.toggle("active", idx === currentIndex);
-        });
-      }
+    const dots = document.querySelectorAll('.carousel-dots span');
 
-      function goToSlide(index) {
-        if (index < 0 || index >= totalSlides) return;
-        currentIndex = index;
-        slidesContainer.style.transform = `translateX(-${slideWidth * index}px)`;
-        updateActiveDot();
-      }
+    function goToSlide(index) {
+      currentIndex = index;
+      slides.style.transform = `translateX(-${100 * index}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+    }
 
-      window.addEventListener("resize", () => {
-        slideWidth = slidesContainer.children[0].clientWidth;
-        goToSlide(currentIndex);
-      });
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalSlides;
+      goToSlide(currentIndex);
+    }
 
-      // Init
-      goToSlide(0);
-    })();
+    setInterval(nextSlide, 4000);
   </script>
 </body>
 </html>
