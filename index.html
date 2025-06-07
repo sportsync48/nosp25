@@ -204,23 +204,26 @@
   <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #b5a167;">
     <div class="container d-flex justify-content-between align-items-center">
       
-      <!-- Brand/Logo -->
-      <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <!-- Brand Logo + Name -->
+      <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 50px; margin-right: 10px;">
-        <span>National Open Slowpitch 2025</span>
+        <span class="fw-bold">National Open Slowpitch 2025</span>
       </a>
   
-      <!-- Toggler (moved inline with brand) -->
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <!-- Toggler (Burger) on right -->
+      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
   
-      <!-- Nav links -->
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Committee</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown">
+              Committee
+            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#committee">Committee</a></li>
               <li><a class="dropdown-item" href="#subcommittee">SubCommittee</a></li>
@@ -230,7 +233,9 @@
           <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
           <li class="nav-item"><a class="nav-link" href="#standings">Standings</a></li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Statistic</a>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown">
+              Statistic
+            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#batter">Batter</a></li>
               <li><a class="dropdown-item" href="#pitcher">Pitcher</a></li>
