@@ -38,7 +38,6 @@
         /* Smaller navbar toggler icon */
     .navbar-toggler {
       padding: 0.25rem 0.35rem; /* smaller button padding */
-      font-size: 0.75rem;     /* smaller icon size */
     }
     
     .navbar-toggler-icon {
@@ -213,23 +212,23 @@
 <body>
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #b5a167;">
-    <div class="container d-flex justify-content-between align-items-center">
+    <div class="container">
       
-      <!-- Brand Logo + Name -->
+      <!-- Logo + Brand -->
       <a class="navbar-brand d-flex align-items-center" href="#">
         <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;">
         <span class="fw-bold">National Open Slowpitch 2025</span>
       </a>
   
-      <!-- Toggler (Burger) on right -->
-      <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      <!-- Burger Toggler (Always aligned right) -->
+      <button class="navbar-toggler ms-auto border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
   
-      <!-- Navbar links -->
-      <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNavDropdown">
-        <ul class="navbar-nav ms-auto">
+      <!-- Navbar Links -->
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ms-auto mt-3 mt-lg-0">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown">
