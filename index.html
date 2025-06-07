@@ -148,7 +148,29 @@
       .text-muted {
         color: #6c757d !important; /* gray */
       }
-    
+
+          /* Smaller table styling */
+      .table-responsive {
+        max-width: 100%;
+        overflow-x: auto;
+      }
+      
+      .table {
+        font-size: 0.85rem; /* smaller font */
+      }
+      
+      .table th, .table td {
+        padding: 0.25rem 0.5rem; /* tighter padding */
+      }
+      
+      .team-logo {
+        height: 18px;  /* smaller logos */
+        width: 18px;
+        margin-right: 6px;
+        vertical-align: middle;
+        border-radius: 3px;
+      }
+
       .carousel-container {
         max-width: 800px;
         height: 500px;
@@ -284,7 +306,7 @@
   </div>
 </div>
 
-<!-- Right-side Top 5 Table -->
+  <!-- Right-side Top 5 Table -->
 <div class="col-12 col-md-5">
   <div class="card shadow-sm">
     <div class="card-body">
@@ -297,9 +319,6 @@
               <th>#</th>
               <th>Team</th>
               <th>Rank</th>
-              <th>Wins</th>
-              <th>Losses</th>
-              <th>Points</th>
             </tr>
           </thead>
           <tbody>
@@ -309,9 +328,6 @@
                 <img src="assets/lions.png" alt="Lions" class="team-logo"> Lions
               </td>
               <td><span class="text-success">▲ 1</span></td>
-              <td>12</td>
-              <td>2</td>
-              <td>18</td>
             </tr>
             <tr>
               <td>2</td>
@@ -319,9 +335,6 @@
                 <img src="assets/tigers.png" alt="Tigers" class="team-logo"> Tigers
               </td>
               <td><span class="text-danger">▼ 1</span></td>
-              <td>11</td>
-              <td>3</td>
-              <td>16</td>
             </tr>
             <tr>
               <td>3</td>
@@ -329,9 +342,6 @@
                 <img src="assets/panthers.png" alt="Panthers" class="team-logo"> Panthers
               </td>
               <td><span class="text-success">▲ 2</span></td>
-              <td>10</td>
-              <td>4</td>
-              <td>14</td>
             </tr>
             <tr>
               <td>4</td>
@@ -339,9 +349,6 @@
                 <img src="assets/falcons.png" alt="Falcons" class="team-logo"> Falcons
               </td>
               <td><span class="text-muted">–</span></td>
-              <td>9</td>
-              <td>5</td>
-              <td>12</td>
             </tr>
             <tr>
               <td>5</td>
@@ -349,9 +356,6 @@
                 <img src="assets/wolves.png" alt="Wolves" class="team-logo"> Wolves
               </td>
               <td><span class="text-danger">▼ 1</span></td>
-              <td>8</td>
-              <td>6</td>
-              <td>10</td>
             </tr>
           </tbody>
         </table>
