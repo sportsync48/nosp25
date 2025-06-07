@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>National Open Slowpitch 2025</title>
 
-  <!-- Open Graph Meta Tags for Social Sharing -->
+  <!-- Social Sharing -->
   <meta property="og:title" content="National Open Slowpitch 2025" />
   <meta property="og:description" content="One team, one dream, one win. Join us for NOSP 2025!" />
   <meta property="og:image" content="https://sportsync48.github.io/nosp25/assets/nosp25thumbnail.png" />
@@ -15,8 +15,8 @@
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
   <style>
     body {
@@ -24,10 +24,7 @@
       scroll-behavior: smooth;
     }
 
-    nav.navbar {
-      position: sticky;
-      top: 0;
-      z-index: 1030;
+    .navbar {
       background-color: #b5a167;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
@@ -84,12 +81,11 @@
 
     .image-hover-container {
       position: relative;
-      width: 100%;
-      max-width: 200px;
+      width: 200px;
       height: 80px;
-      margin: 0.5rem;
       overflow: hidden;
       border-radius: 10px;
+      margin: 10px;
     }
 
     .image-hover-container img {
@@ -103,8 +99,7 @@
       position: absolute;
       inset: 0;
       background-color: rgba(0, 0, 0, 0.4);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 1;
       z-index: 1;
     }
 
@@ -120,29 +115,20 @@
       font-weight: 500;
       border-radius: 6px;
       text-decoration: none;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
       z-index: 2;
     }
 
-    .image-hover-container:hover .hover-button,
-    .image-hover-container:hover .image-overlay {
-      opacity: 1;
-    }
-
-    @media (max-width: 768px) {
-      .hover-button,
-      .image-overlay {
-        opacity: 1 !important;
-      }
+    /* Announcement box */
+    .announcement-box {
+      background-color: #fff8e1;
+      border-left: 4px solid #b5a167;
     }
 
     .carousel-container {
-      max-width: 800px;
-      height: 500px;
-      margin: 3rem auto;
-      overflow: hidden;
       position: relative;
+      width: 100%;
+      max-width: 100%;
+      overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
@@ -155,10 +141,8 @@
 
     .carousel-slides img {
       width: 100%;
-      height: 100%;
       object-fit: cover;
       flex-shrink: 0;
-      display: block;
     }
 
     .carousel-dots {
@@ -167,23 +151,38 @@
     }
 
     .carousel-dots span {
-      display: inline-block;
       width: 12px;
       height: 12px;
       margin: 0 4px;
       background-color: #ccc;
       border-radius: 50%;
+      display: inline-block;
       cursor: pointer;
-      transition: background-color 0.3s;
     }
 
     .carousel-dots span.active {
       background-color: #333;
     }
 
-    .announcement-box {
-      background-color: #f8f9fa;
-      border-left: 4px solid #b5a167;
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.4);
+      border: none;
+      z-index: 3;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .carousel-arrow.left {
+      left: 10px;
+    }
+
+    .carousel-arrow.right {
+      right: 10px;
     }
 
     footer {
@@ -195,26 +194,38 @@
       color: black;
       font-size: 1.4rem;
       margin: 0 0.5rem;
-      transition: color 0.3s ease;
     }
 
     footer a:hover {
       color: #ffc107;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-slides img {
+        height: auto;
+      }
+
+      .image-hover-container {
+        width: 90%;
+      }
     }
   </style>
 </head>
 
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container d-flex justify-content-between align-items-center">
       <div class="d-flex align-items-center">
         <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;" />
         <span class="navbar-brand mb-0 fw-bold title-text">National Open Slowpitch 2025</span>
       </div>
-      <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+      <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+        aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -242,7 +253,7 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <header class="hero">
     <div class="container">
       <h1 class="display-3 fw-bold">National Open Slowpitch 2025</h1>
@@ -250,35 +261,11 @@
     </div>
   </header>
 
-  <!-- Features Section: Hover Buttons + Announcement -->
-  <div class="container my-4">
+  <!-- Main Section -->
+  <div class="container mt-4">
     <div class="row">
-      <!-- Image Hover Buttons (3/4 width) -->
-      <div class="col-md-9 d-flex flex-wrap justify-content-start">
-        <div class="image-hover-container">
-          <img src="assets/button1.png" alt="Button 1" />
-          <div class="image-overlay"></div>
-          <a href="#" class="hover-button">Teams</a>
-        </div>
-        <div class="image-hover-container">
-          <img src="assets/button2.png" alt="Button 2" />
-          <div class="image-overlay"></div>
-          <a href="#" class="hover-button">Schedule</a>
-        </div>
-        <div class="image-hover-container">
-          <img src="assets/button3.png" alt="Button 3" />
-          <div class="image-overlay"></div>
-          <a href="#" class="hover-button">Standings</a>
-        </div>
-        <div class="image-hover-container">
-          <img src="assets/button4.png" alt="Button 4" />
-          <div class="image-overlay"></div>
-          <a href="#" class="hover-button">Statistic</a>
-        </div>
-      </div>
-
-      <!-- Announcement Box (1/4 width) -->
-      <div class="col-md-3">
+      <!-- Announcement -->
+      <div class="col-md-3 order-1 order-md-2 mt-3 mt-md-0">
         <div class="announcement-box p-3 rounded shadow-sm">
           <h5 class="fw-bold mb-3">Announcement</h5>
           <ul class="list-unstyled mb-0">
@@ -288,52 +275,73 @@
           </ul>
         </div>
       </div>
+
+      <!-- Hover images + carousel -->
+      <div class="col-md-9 order-2 order-md-1">
+        <div class="d-flex flex-wrap justify-content-start">
+          <div class="image-hover-container">
+            <img src="assets/button1.png" alt="Button 1" />
+            <div class="image-overlay"></div>
+            <a href="#" class="hover-button">Schedule</a>
+          </div>
+          <div class="image-hover-container">
+            <img src="assets/button2.png" alt="Button 2" />
+            <div class="image-overlay"></div>
+            <a href="#" class="hover-button">Standings</a>
+          </div>
+          <div class="image-hover-container">
+            <img src="assets/button3.png" alt="Button 3" />
+            <div class="image-overlay"></div>
+            <a href="#" class="hover-button">Statistic</a>
+          </div>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel-container mt-4">
+          <div class="carousel-slides">
+            <img src="assets/slide1.jpg" alt="Slide 1" />
+            <img src="assets/slide2.jpg" alt="Slide 2" />
+            <img src="assets/slide3.jpg" alt="Slide 3" />
+          </div>
+          <button class="carousel-arrow left" onclick="prevSlide()">❮</button>
+          <button class="carousel-arrow right" onclick="nextSlide()">❯</button>
+          <div class="carousel-dots"></div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Carousel Section -->
-  <section class="carousel-container">
-    <div class="carousel-slides">
-      <img src="assets/slide1.jpg" alt="Slide 1" />
-      <img src="assets/slide2.jpg" alt="Slide 2" />
-      <img src="assets/slide3.jpg" alt="Slide 3" />
-    </div>
-    <div class="carousel-dots"></div>
-  </section>
-
   <!-- Footer -->
-  <footer class="text-center py-4">
+  <footer class="text-center py-4 mt-5">
     <div class="container">
-      <p class="fw-medium fs-5 mb-2">
-        © NOSP's Secretariat | National Open Slowpitch 2025
-      </p>
+      <p class="fw-medium fs-5 mb-2">© NOSP's Secretariat | National Open Slowpitch 2025</p>
       <div>
-        <a href="#"><i class="bi bi-facebook fs-4"></i></a>
-        <a href="#"><i class="bi bi-twitter fs-4"></i></a>
-        <a href="#"><i class="bi bi-instagram fs-4"></i></a>
-        <a href="#"><i class="bi bi-tiktok fs-4"></i></a>
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-twitter"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-tiktok"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap Bundle JS -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Carousel Script -->
   <script>
     const slides = document.querySelector('.carousel-slides');
     const dotsContainer = document.querySelector('.carousel-dots');
     const totalSlides = slides.children.length;
     let currentIndex = 0;
 
+    // Create dots
     for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('span');
-      if (i === 0) dot.classList.add('active');
       dot.addEventListener('click', () => goToSlide(i));
       dotsContainer.appendChild(dot);
     }
 
     const dots = document.querySelectorAll('.carousel-dots span');
+    dots[0].classList.add('active');
 
     function goToSlide(index) {
       currentIndex = index;
@@ -347,7 +355,12 @@
       goToSlide(currentIndex);
     }
 
-    setInterval(nextSlide, 4000);
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+      goToSlide(currentIndex);
+    }
+
+    setInterval(nextSlide, 5000);
   </script>
 </body>
 </html>
