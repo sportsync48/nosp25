@@ -29,7 +29,7 @@
 
     header.hero {
       background: url('assets/hero.jpg') no-repeat center center/cover;
-      height: 20vh;
+      height: 25vh;
       position: relative;
       color: white;
     }
@@ -58,75 +58,75 @@
     }
 
     .image-row {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap; /* allow wrapping on small screens */
-  margin: 2rem 0;
-}
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap; /* allow wrapping on small screens */
+      margin: 2rem 0;
+    }
 
-.image-hover-container {
-  position: relative;
-  width: 200px; /* adjust as needed */
-  height: 100px;
-  overflow: hidden;
-  border-radius: 10px;
-}
+    .image-hover-container {
+      position: relative;
+      width: 200px; /* adjust as needed */
+      height: 80px;
+      overflow: hidden;
+      border-radius: 10px;
+    }
 
-.image-hover-container img {
-  width: 100%;
-  display: block;
-  height: auto;
-  border-radius: 10px;
-}
-
-.image-overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 1;
-}
-
-.hover-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 123, 255, 0.85);
-  color: white;
-  padding: 12px 24px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  opacity: 0;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  z-index: 2;
-}
-
-.image-hover-container:hover .hover-button,
-.image-hover-container:hover .image-overlay {
-  opacity: 1;
-}
-
-.image-hover-container:hover .hover-button {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.05);
-}
-
-/* Mobile: always show */
-@media (max-width: 768px) {
-  .hover-button,
-  .image-overlay {
-    opacity: 1 !important;
-  }
-
-  .image-row {
-    flex-direction: column;
-    align-items: center;
-  }
-}
+    .image-hover-container img {
+      width: 100%;
+      display: block;
+      height: auto;
+      border-radius: 10px;
+    }
+  
+    .image-overlay {
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+  
+    .hover-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(0, 123, 255, 0.85);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 2;
+    }
+    
+    .image-hover-container:hover .hover-button,
+    .image-hover-container:hover .image-overlay {
+      opacity: 1;
+    }
+  
+    .image-hover-container:hover .hover-button {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.05);
+    }
+    
+    /* Mobile: always show */
+    @media (max-width: 768px) {
+      .hover-button,
+      .image-overlay {
+        opacity: 1 !important;
+      }
+  
+      .image-row {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
 
     .carousel-container {
       max-width: 800px;
