@@ -45,6 +45,23 @@
       height: 1rem;
     }
 
+        /* Adjust title font size on small screens */
+    .title-text {
+      font-size: 1.25rem; /* default */
+    }
+    
+    @media (max-width: 768px) {
+      .title-text {
+        font-size: 1rem; /* reduce on small screens */
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .title-text {
+        font-size: 0.9rem; /* even smaller on extra small */
+      }
+    }
+
     header.hero {
       background: url('assets/hero.jpg') no-repeat center center/cover;
       height: 30vh;
@@ -214,20 +231,19 @@
   <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #b5a167;">
     <div class="container d-flex justify-content-between align-items-center">
   
-      <!-- Logo and Title -->
+      <!-- Logo and Title (inline, always full title) -->
       <div class="d-flex align-items-center">
         <img src="assets/nosp25logo.png" alt="NOSP25 Logo" style="height: 40px; margin-right: 10px;">
-        <span class="navbar-brand mb-0 fw-bold d-none d-sm-block fs-5 fs-md-4 fs-lg-4">National Open Slowpitch 2025</span>
-        <span class="navbar-brand mb-0 fw-bold d-sm-none fs-6">NOSP 2025</span> <!-- Shorter on very small screens -->
+        <span class="navbar-brand mb-0 fw-bold title-text">National Open Slowpitch 2025</span>
       </div>
   
-      <!-- Burger Toggler -->
+      <!-- Burger Button (aligned right) -->
       <button class="navbar-toggler border-0 p-1" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="width: 1rem; height: 1rem;"></span>
       </button>
   
-      <!-- Nav Links -->
+      <!-- Navbar links -->
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNavDropdown">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
@@ -298,11 +314,15 @@
   <!-- Footer -->
   <footer class="text-center py-4">
     <div class="container">
-      <p>© NOSP's Secretariat | National Open Slowpitch 2025</p>
-      <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" aria-label="Twitter"><i class="bi bi-twitter"></i></a>
-      <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" aria-label="Tiktok"><i class="bi bi-tiktok"></i></a>
+      <p class="fw-medium fs-5 fs-md-6 fs-sm-6 fs-xs-6 mb-2">
+        © NOSP's Secretariat | National Open Slowpitch 2025
+      </p>
+      <div>
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook fs-4"></i></a>
+        <a href="#" aria-label="Twitter"><i class="bi bi-twitter fs-4"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram fs-4"></i></a>
+        <a href="#" aria-label="Tiktok"><i class="bi bi-tiktok fs-4"></i></a>
+      </div>
     </div>
   </footer>
 
