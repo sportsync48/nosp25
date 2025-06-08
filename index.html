@@ -89,15 +89,18 @@
 
     .carousel-slides {
       display: flex;
+      justify-content: center;
       transition: transform 0.5s ease-in-out;
       width: 300%;
     }
 
     .carousel-slides img {
-      width: 100%;
-      object-fit: cover;
-      flex-shrink: 0;
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+      flex: 0 0 100%;
       display: block;
+      margin: 0 auto;
     }
 
     .carousel-dots {
@@ -222,15 +225,15 @@
       </button>
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-         
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li> 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Committee
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#committee">Committee</a></li>
-            <li><a class="dropdown-item" href="#subcommittee">SubCommittee</a></li>
-            <li><a class="dropdown-item" href="#secretariat">Secretariat</a></li>
+            <li><a class="dropdown-item" href="committee.html">Committee</a></li>
+            <li><a class="dropdown-item" href="subcommittee.html">SubCommittee</a></li>
+            <li><a class="dropdown-item" href="secretariat.html">Secretariat</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="#schedule">Schedule</a></li>
