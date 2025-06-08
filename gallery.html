@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galleri | National Open Slowpitch 2025</title>
+    <!-- Bootstrap and Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+    <!-- Lightbox CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
+    <!-- LazyLoad CSS (Optional, if you want to style lazy-loaded images) -->
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      nav.navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+        background-color: #b5a167;
+      }
+
+      /* Gallery grid layout */
+      #gallery .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      #gallery .col-md-4,
+      #gallery .col-sm-6 {
+        position: relative;
+      }
+
+      #gallery .img-fluid {
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      #gallery .img-fluid:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Lazy load effect */
+      img[data-src] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      img[data-src].loaded {
+        opacity: 1;
+      }
+
+      footer {
+        background-color: #b2a367;
+        color: black;
+      }
+
+      footer a {
+        color: black;
+        font-size: 1.4rem;
+        margin: 0 0.5rem;
+      }
+
+      footer a:hover {
+        color: #ffc107;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg shadow-sm">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          <img src="assets/nosp25logo.png" alt="Logo" style="height: 40px;" class="me-2"> National Open Slowpitch 2025 </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Utama</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Jawatankuasa </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="committee.html">Jawatankuasa Induk</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="subcommittee.html">Jawatankuasa Kecil</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="secretariat.html">Urusetia</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#schedule">Jadual</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#standings">Kedudukan</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Statistik </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#batter">Pemukul</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#pitcher">Pembaling</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Galleri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Hubungi Kami</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Gallery Section -->
+    <section id="gallery" class="container py-5">
+      <h2 class="text-center mb-4">Gallery</h2>
+      <div class="row">
+        <!-- Sample Gallery Items -->
+        <div class="col-md-4 col-sm-6 mb-4">
+          <a href="images/image1.jpg" data-lightbox="gallery" data-title="Image 1">
+            <img data-src="images/image1_thumb.jpg" alt="Image 1" class="img-fluid lazyload">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <a href="images/image2.jpg" data-lightbox="gallery" data-title="Image 2">
+            <img data-src="images/image2_thumb.jpg" alt="Image 2" class="img-fluid lazyload">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <a href="images/image3.jpg" data-lightbox="gallery" data-title="Image 3">
+            <img data-src="images/image3_thumb.jpg" alt="Image 3" class="img-fluid lazyload">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <a href="images/image4.jpg" data-lightbox="gallery" data-title="Image 4">
+            <img data-src="images/image4_thumb.jpg" alt="Image 4" class="img-fluid lazyload">
+          </a>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4">
+          <a href="images/image5.jpg" data-lightbox="gallery" data-title="Image 5">
+            <img data-src="images/image5_thumb.jpg" alt="Image 5" class="img-fluid lazyload">
+          </a>
+        </div>
+        <!-- Add more gallery items here -->
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5">
+      <div class="container">
+        <p class="mb-2">© NOSP Secretariat | National Open Slowpitch 2025</p>
+        <div>
+          <a href="#">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#">
+            <i class="bi bi-twitter"></i>
+          </a>
+          <a href="#">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#">
+            <i class="bi bi-tiktok"></i>
+          </a>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Include LazyLoad JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
+    <!-- Include Lightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+    <script>
+      // Lazy Load initialization
+      var lazyLoadInstance = new LazyLoad({
+        elements_selector: ".lazyload"
+      });
+    </script>
+  </body>
+</html>
