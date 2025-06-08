@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Galleri | National Open Slowpitch 2025</title>
+    <title>Galeri | National Open Slowpitch 2025</title>
     
     <!-- Bootstrap and Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
@@ -12,7 +12,6 @@
     
     <!-- Lightbox CSS -->
     <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
-    <!-- LazyLoad CSS (Optional, if you want to style lazy-loaded images) -->
     
     <style>
       body {
@@ -27,7 +26,7 @@
         background-color: #b5a167;
       }
 
-       .header-section {
+      .header-section {
         background-color: #e0e0e0;
         padding: 50px 0;
         text-align: center;
@@ -43,7 +42,40 @@
         font-size: 1.2rem;
         color: #777;
       }
-      
+
+      /* Gallery Tab Navigation */
+      .tabs {
+        display: flex;
+        justify-content: center;
+        background-color: #fff;
+        border-bottom: 2px solid #e0e0e0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 2rem;
+      }
+
+      .tab {
+        padding: 12px 25px;
+        cursor: pointer;
+        text-align: center;
+        flex: 1;
+        font-size: 16px;
+        font-weight: 500;
+        color: #555;
+        background-color: #f7f7f7;
+        border: 1px solid #ddd;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .tab.active {
+        background-color: #b5a167;
+        /* Matching the navbar color */
+        color: white;
+      }
+
+      .tab:hover {
+        background-color: #f0f0f0;
+      }
+
       /* Gallery grid layout */
       #gallery .row {
         display: flex;
@@ -96,80 +128,79 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">
-        <img src="assets/nosp25logo.png" alt="Logo" style="height: 40px;" class="me-2">
-        National Open Slowpitch 2025
-      </a>
-      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Utama</a></li> 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Jawatankuasa
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="committee.html">Jawatankuasa Induk</a></li>
-            <li><a class="dropdown-item" href="subcommittee.html">Jawatankuasa Kecil</a></li>
-            <li><a class="dropdown-item" href="secretariat.html">Urusetia</a></li>
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">
+          <img src="assets/nosp25logo.png" alt="Logo" style="height: 40px;" class="me-2"> National Open Slowpitch 2025 </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Utama</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Jawatankuasa </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="committee.html">Jawatankuasa Induk</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="subcommittee.html">Jawatankuasa Kecil</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="secretariat.html">Urusetia</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#schedule">Jadual</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#standings">Kedudukan</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Statistik </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#batter">Pemukul</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#pitcher">Pembaling</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Hubungi Kami</a>
+            </li>
           </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#schedule">Jadual</a></li>
-        <li class="nav-item"><a class="nav-link" href="#standings">Kedudukan</a></li>
-                <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Statistik
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
-            <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Hubungi Kami</a></li>
-        </ul>
+        </div>
       </div>
-    </div>
-  </nav>
-
-     <!-- Header Section -->
+    </nav>
+    <!-- Header Section -->
     <div class="header-section">
       <h1>Galeri</h1>
-      <p>Hari Pertama | Hari Kedua | Hari Ketiga | Hari Keempat</p>
+      <p>4th National Open Slowpitch | 04 - 06 July 2025</p>
     </div>
-    <div class="my-4"></div>
-    
-    <!-- Gallery Section -->
-    <section id="gallery" class="container py-5">
-      <h2 class="text-center mb-4">Gallery</h2>
-      <div class="row">
-        <!-- Sample Gallery Items -->
-        <div class="col-md-4 col-sm-6 mb-4">
+    <!-- Gallery Tab Navigation -->
+    <div class="tabs">
+      <div class="tab active" id="hariPertamaTab">Hari Pertama</div>
+      <div class="tab" id="hariKeduaTab">Hari Kedua</div>
+      <div class="tab" id="hariKetigaTab">Hari Ketiga</div>
+      <div class="tab" id="hariKeempatTab">Hari Keempat</div>
+    </div>
+        <!-- Sample Gallery Items for Hari Pertama -->
+        <div class="col-md-4 col-sm-6 mb-4 hariPertama">
           <a href="images/image1.jpg" data-lightbox="gallery" data-title="Image 1">
             <img data-src="images/image1_thumb.jpg" alt="Image 1" class="img-fluid lazyload">
           </a>
         </div>
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4 hariPertama">
           <a href="images/image2.jpg" data-lightbox="gallery" data-title="Image 2">
             <img data-src="images/image2_thumb.jpg" alt="Image 2" class="img-fluid lazyload">
-          </a>
-        </div>
-        <div class="col-md-4 col-sm-6 mb-4">
-          <a href="images/image3.jpg" data-lightbox="gallery" data-title="Image 3">
-            <img data-src="images/image3_thumb.jpg" alt="Image 3" class="img-fluid lazyload">
-          </a>
-        </div>
-        <div class="col-md-4 col-sm-6 mb-4">
-          <a href="images/image4.jpg" data-lightbox="gallery" data-title="Image 4">
-            <img data-src="images/image4_thumb.jpg" alt="Image 4" class="img-fluid lazyload">
-          </a>
-        </div>
-        <div class="col-md-4 col-sm-6 mb-4">
-          <a href="images/image5.jpg" data-lightbox="gallery" data-title="Image 5">
-            <img data-src="images/image5_thumb.jpg" alt="Image 5" class="img-fluid lazyload">
           </a>
         </div>
         <!-- Add more gallery items here -->
@@ -199,14 +230,25 @@
     
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Include LazyLoad JS -->
     <script src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.min.js"></script>
-    <!-- Include Lightbox JS -->
     <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+    
     <script>
       // Lazy Load initialization
       var lazyLoadInstance = new LazyLoad({
         elements_selector: ".lazyload"
+      });
+      // Tab Switch Logic
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          // Show/Hide gallery items based on selected tab
+          const tabId = tab.id.replace('Tab', '');
+          document.querySelectorAll('.hariPertama, .hariKedua, .hariKetiga, .hariKeempat').forEach(item => {
+            item.style.display = item.classList.contains(tabId) ? 'block' : 'none';
+          });
+        });
       });
     </script>
   </body>
