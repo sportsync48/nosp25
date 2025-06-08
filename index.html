@@ -122,21 +122,30 @@
       background-color: #333;
     }
 
+    /* Updated carousel arrow styling */
     .carousel-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       font-size: 2rem;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: #b5a167; /* Circle background color */
       color: white;
-      padding: 4px 10px;
+      padding: 12px; /* Adjust size for a round button */
       cursor: pointer;
-      border-radius: 50%;
+      border-radius: 50%; /* Full circle */
       z-index: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for better visibility */
     }
 
     .carousel-arrow.left { left: 10px; }
     .carousel-arrow.right { right: 10px; }
+
+    .carousel-arrow:hover {
+      background-color: #ffc107; /* Highlight background on hover */
+    }
 
     .hover-buttons {
       flex: 1;
