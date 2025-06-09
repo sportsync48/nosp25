@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -122,30 +122,32 @@
       background-color: #333;
     }
 
-    /* Updated carousel arrow styling */
+    /* Updated style for carousel arrows */
     .carousel-arrow {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 2rem;
-      background-color: #b5a167; /* Circle background color */
+      font-size: 1.5rem; /* Smaller arrow size */
+      background-color: rgba(181, 166, 103, 0.7); /* Reduced opacity */
       color: white;
-      padding: 12px; /* Adjust size for a round button */
+      padding: 0;
+      width: 40px; /* Smaller width */
+      height: 40px; /* Smaller height */
+      border-radius: 50%;
       cursor: pointer;
-      border-radius: 50%; /* Full circle */
       z-index: 3;
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Slight shadow for better visibility */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel-arrow:hover {
+      background-color: rgba(255, 193, 7, 0.8); /* Slightly more opaque on hover */
     }
 
     .carousel-arrow.left { left: 10px; }
     .carousel-arrow.right { right: 10px; }
-
-    .carousel-arrow:hover {
-      background-color: #ffc107; /* Highlight background on hover */
-    }
 
     .hover-buttons {
       flex: 1;
@@ -234,30 +236,30 @@
       </button>
       <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="index.html">Utama</a></li> 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Jawatankuasa
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="committee.html">Jawatankuasa Induk</a></li>
-            <li><a class="dropdown-item" href="subcommittee.html">Jawatankuasa Kecil</a></li>
-            <li><a class="dropdown-item" href="secretariat.html">Urusetia</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="#schedule">Jadual</a></li>
-        <li class="nav-item"><a class="nav-link" href="#standings">Kedudukan</a></li>
-                <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Statistik
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
-            <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
-        <li class="nav-item"><a class="nav-link" href="contact.html">Hubungi Kami</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Utama</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Jawatankuasa
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="committee.html">Jawatankuasa Induk</a></li>
+              <li><a class="dropdown-item" href="subcommittee.html">Jawatankuasa Kecil</a></li>
+              <li><a class="dropdown-item" href="secretariat.html">Urusetia</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#schedule">Jadual</a></li>
+          <li class="nav-item"><a class="nav-link" href="#standings">Kedudukan</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Statistik
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
+              <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Hubungi Kami</a></li>
         </ul>
       </div>
     </div>
@@ -278,9 +280,8 @@
       <p>Selamat datang ke portal rasmi NOSP 2025. Nantikan lebih banyak kemas kini dan jadual perlawanan!</p>
     </div>
 
-    <!-- Main Flex: Carousel Left, Hover Right -->
+    <!-- Main content -->
     <div class="main-flex">
-      <!-- Carousel -->
       <div class="carousel-container">
         <div class="carousel-arrow left" onclick="prevSlide()">‹</div>
         <div class="carousel-arrow right" onclick="nextSlide()">›</div>
