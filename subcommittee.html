@@ -16,11 +16,19 @@
         scroll-behavior: smooth;
       }
 
-      nav.navbar {
+       nav.navbar {
         position: sticky;
         top: 0;
         z-index: 1030;
         background-color: #b5a167;
+      }
+  
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .dropdown-item:hover,
+      .navbar-nav .nav-link.active,
+      .navbar-nav .dropdown-item.active {
+        color: #ffc107 !important;
+        font-weight: 600;
       }
 
       .header-section {
