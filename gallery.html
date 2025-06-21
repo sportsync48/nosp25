@@ -139,82 +139,75 @@
 <script>
 const galleryApiUrl = 'https://script.google.com/macros/s/AKfycbzwYUYGHnw_KG7UMMHfRXhRvz7LllsEw1TNjyB50DKNwY9i5bEfjQXjVB1JODZtjeKb_g/exec';
 
+let currentImages = [];
+let currentIndex = 0;
+
+// Fetch images from Apps Script and initialize gallery
 fetch(galleryApiUrl)
   .then(res => res.json())
   .then(images => {
-    const container = document.getElementById('galleryContainer');
-    container.innerHTML = '';
-    images.forEach((img, idx) => {
-      const div = document.createElement('div');
-      div.className = 'col-6 col-sm-4 col-md-3 col-lg-2';
-      div.innerHTML = `<img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100" 
-        data-bs-toggle="modal" data-bs-target="#imageModal" 
-        data-index="${idx}" data-download="${img.download}">`;
-      container.appendChild(div);
-    });
-
-    window.currentImages = images;
+    currentImages = images;
+    renderGallery(); // Render all on load (optional: filter later)
   });
 
-let currentIndex = 0;
-let currentImages = [];
-
-function renderGallery(day) {
+// Render the full gallery (you can enhance it to filter by day)
+function renderGallery() {
   const container = document.getElementById('galleryContainer');
   container.innerHTML = '';
-  currentImages = galleryData.filter(img => img.day === day);
   currentImages.forEach((img, idx) => {
     const div = document.createElement('div');
     div.className = 'col-6 col-sm-4 col-md-3 col-lg-2';
-    div.innerHTML = `<img src="${img.src}" alt="${img.alt}" class="img-thumbnail w-100" data-bs-toggle="modal" data-bs-target="#imageModal" data-index="${idx}">`;
+    div.innerHTML = `
+      <img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100" 
+           data-bs-toggle="modal" data-bs-target="#imageModal" 
+           data-index="${idx}" data-download="${img.download}">
+    `;
     container.appendChild(div);
   });
 }
 
+// Show selected image in modal
 function showImage(index) {
   const img = currentImages[index];
   if (!img) return;
   currentIndex = index;
-  document.getElementById('modalImage').src = img.src;
-  document.getElementById('downloadBtn').href = img.src;
+  document.getElementById('modalImage').src = img.url;
+  document.getElementById('downloadBtn').href = img.download;
 }
 
+// Navigate modal
 function navigate(direction) {
   currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
   showImage(currentIndex);
 }
 
+// Modal event
 document.getElementById('imageModal').addEventListener('show.bs.modal', function (e) {
   const index = parseInt(e.relatedTarget.getAttribute('data-index'));
   showImage(index);
 });
 
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-    renderGallery(tab.getAttribute('data-day'));
-  });
-});
-
-// Close modal when clicking outside image and arrows
-const imageModal = document.getElementById('imageModal');
-imageModal.querySelector('.modal-body').addEventListener('click', function (e) {
+// Close modal on body click
+document.querySelector('.modal-body').addEventListener('click', function (e) {
   const isClickInsideImage = e.target.closest('#modalImage');
   const isClickInsideArrow = e.target.closest('.modal-arrow');
   if (!isClickInsideImage && !isClickInsideArrow) {
-    bootstrap.Modal.getInstance(imageModal)?.hide();
+    bootstrap.Modal.getInstance(document.getElementById('imageModal'))?.hide();
   }
 });
 
+// Keyboard navigation
 document.addEventListener('keydown', function(e) {
-  if (imageModal.classList.contains('show')) {
+  const modal = document.getElementById('imageModal');
+  if (modal.classList.contains('show')) {
     if (e.key === 'ArrowRight') navigate(1);
     if (e.key === 'ArrowLeft') navigate(-1);
-    if (e.key === 'Escape') bootstrap.Modal.getInstance(imageModal)?.hide();
+    if (e.key === 'Escape') bootstrap.Modal.getInstance(modal)?.hide();
   }
 });
-
+</script>
+</body>
+</html>
 renderGallery('hariPertama');
 </script>
 </body>
