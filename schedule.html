@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jadual | National Open Slowpitch 2025</title>
+
+  <!-- Bootstrap & Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Panzoom -->
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    nav.navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1030;
+      background-color: #b5a167;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .dropdown-item:hover,
+    .navbar-nav .nav-link.active,
+    .navbar-nav .dropdown-item.active {
+      color: #ffc107 !important;
+      font-weight: 600;
+    }
+
+    .header-section {
+      background-color: #e0e0e0;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .header-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .header-section p {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    footer {
+      background-color: #b2a367;
+      color: black;
+    }
+
+    footer a {
+      color: black;
+      font-size: 1.4rem;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">
+      <img src="assets/nosp25logo.png" alt="Logo" style="height: 40px;" class="me-2" loading="lazy">
+      National Open Slowpitch 2025
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Utama</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Jawatankuasa
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="committee.html">Jawatankuasa Induk</a></li>
+            <li><a class="dropdown-item" href="subcommittee.html">Jawatankuasa Kecil</a></li>
+            <li><a class="dropdown-item" href="secretariat.html">Urusetia</a></li>
+          </ul>
+        </li>
+	<li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Kejohanan
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="groupdraw.html">Undian Kumpulan</a></li>
+            <li><a class="dropdown-item" href="schedule.html">Jadual Perlawanan</a></li>
+	    <li><a class="dropdown-item" href="result.html">Keputusan Rasmi</a></li>
+            <li><a class="dropdown-item" href="standings.html">Kedudukan Pasukan</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Statistik Pemain
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
+            <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Hubungi Kami</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Header -->
+<header class="header-section">
+  <h1>Jadual Perlawanan</h1>
+  <p>Jadual Kumpulan & Pusingan Kedua</p>
+</header>
+
+<!-- Title -->
+<div class="container text-center mt-4">
+  <h5 class="fw-semibold mb-2">Jadual Perlawanan Kumpulan</h5>
+</div>
+
+<!-- Thumbnails -->
+<div class="container mt-1 mb-2">
+  <div class="row g-3 text-center justify-content-center">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedulegroup1.png" alt="Jadual Kumpulan 1"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedulegroup1.png" data-alt="Jadual Kumpulan 1" data-index="0">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedulegroup2.png" alt="Jadual Kumpulan 2"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedulegroup2.png" data-alt="Jadual Kumpulan 2" data-index="1">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedulegroup3.png" alt="Jadual Kumpulan 3"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedulegroup3.png" data-alt="Jadual Kumpulan 3" data-index="2">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedulegroup4.png" alt="Jadual Kumpulan 4"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedulegroup4.png" data-alt="Jadual Kumpulan 4" data-index="3">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedulegroup5.png" alt="Jadual Kumpulan 5"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedulegroup5.png" data-alt="Jadual Kumpulan 5" data-index="4">
+    </div>
+  </div>
+</div>
+
+<!-- Title -->
+<div class="container text-center mt-4">
+  <h5 class="fw-semibold mb-2">Jadual Pusingan Kedua</h5>
+</div>
+
+<!-- Thumbnails -->
+<div class="container mt-1 mb-2">
+  <div class="row g-3 text-center justify-content-center">
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedule2round1.png" alt="Jadual Pusingan Kedua 1"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedule2round1.png" data-alt="Jadual Pusingan Kedua 1" data-index="5">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedule2round2.png" alt="Jadual Pusingan Kedua 2"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedule2round2.png" data-alt="Jadual Pusingan Kedua 2" data-index="6">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedule2round3.png" alt="Jadual Pusingan Kedua 3"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedule2round3.png" data-alt="Jadual Pusingan Kedua 3" data-index="7">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedule2round4.png" alt="Jadual Pusingan Kedua 4"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedule2round4.png" data-alt="Jadual Pusingan Kedua 4" data-index="8">
+    </div>
+    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+      <img src="assets/schedule2round5.png" alt="Jadual Pusingan Kedua 5"
+           class="img-thumbnail modal-trigger w-100"
+           style="cursor: pointer;"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
+           data-img="assets/schedule2round5.png" data-alt="Jadual Pusingan Kedua 5" data-index="9">
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content bg-transparent border-0">
+
+      <!-- Controls -->
+      <div class="position-absolute top-0 end-0 m-3 z-3 d-flex gap-2">
+        <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
+          <i class="bi bi-download"></i> Muat Turun
+        </a>
+        <button id="fullscreenToggle" class="btn btn-light btn-sm">
+          <i class="bi bi-arrows-fullscreen"></i> Fullscreen
+        </button>
+        <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="position-absolute top-50 start-0 translate-middle-y z-3">
+        <button id="prevBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-left"></i></button>
+      </div>
+      <div class="position-absolute top-50 end-0 translate-middle-y z-3">
+        <button id="nextBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-right"></i></button>
+      </div>
+
+      <!-- Image Zoom Container -->
+      <div class="modal-body d-flex justify-content-center align-items-center p-0" id="zoomWrapper" data-bs-dismiss="modal">
+        <div id="panzoom" onclick="event.stopPropagation();" style="touch-action: none;">
+          <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-4 mt-5">
+  <div class="container">
+    <p class="mb-2">© NOSP Secretariat | National Open Slowpitch 2025</p>
+    <div>
+      <a href="#"><i class="bi bi-facebook"></i></a>
+      <a href="#"><i class="bi bi-twitter"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+      <a href="#"><i class="bi bi-tiktok"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Modal & Zoom Script -->
+<script>
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const panzoomElem = document.getElementById('panzoom');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const fullscreenToggle = document.getElementById('fullscreenToggle');
+  const modalTriggers = document.querySelectorAll('.modal-trigger');
+
+  let currentIndex = 0;
+  let panzoomInstance = null;
+  const images = Array.from(modalTriggers).map(trigger => ({
+    src: trigger.dataset.img,
+    alt: trigger.dataset.alt
+  }));
+
+  modal.addEventListener('show.bs.modal', function (e) {
+    const trigger = e.relatedTarget;
+    currentIndex = parseInt(trigger.dataset.index);
+    updateModalImage();
+  });
+
+  modal.addEventListener('shown.bs.modal', function () {
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(panzoomElem, { maxScale: 5, minScale: 1, contain: 'outside' });
+    panzoomElem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+  });
+
+  modal.addEventListener('hidden.bs.modal', function () {
+    if (panzoomInstance) panzoomInstance.reset();
+  });
+
+  function updateModalImage() {
+    modalImage.src = images[currentIndex].src;
+    modalImage.alt = images[currentIndex].alt;
+    downloadBtn.href = images[currentIndex].src;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateModalImage();
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    updateModalImage();
+  });
+
+  fullscreenToggle.addEventListener('click', function (e) {
+    e.stopPropagation();
+    if (!document.fullscreenElement) {
+      modalImage.requestFullscreen();
+    } else {
+      document.exitFullscreen();
+    }
+  });
+</script>
+</body>
+</html>
