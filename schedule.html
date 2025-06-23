@@ -34,7 +34,7 @@
     }
 
     .header-section {
-      background-color: #e0e0e0;
+      background-color: #000000;
       padding: 20px 0;
       text-align: center;
     }
@@ -42,12 +42,13 @@
     .header-section h1 {
       font-size: 2.5rem;
       font-weight: bold;
+      color: #ffffff;
       margin-bottom: 0.5rem;
     }
 
     .header-section p {
       font-size: 1.2rem;
-      color: #777;
+      color: #ffffff;
     }
 
     footer {
@@ -63,6 +64,13 @@
 
     footer a:hover {
       color: #ffc107;
+    }
+
+    .group-img {
+      width: 120px;
+      height: 150px;
+      object-fit: cover;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -121,97 +129,101 @@
 <!-- Header -->
 <header class="header-section">
   <h1>Jadual Perlawanan</h1>
-  <p>Jadual Kumpulan & Pusingan Kedua</p>
+  <p>Peringkat Kumpulan & Pusingan Kedua</p>
 </header>
 
-<!-- Title -->
+<!-- Jadual Perlawanan Kumpulan -->
 <div class="container text-center mt-4">
-  <h5 class="fw-semibold mb-2">Jadual Perlawanan Kumpulan</h5>
-</div>
+  <h5 class="fw-semibold mb-3">Jadual Perlawanan Kumpulan</h5>
 
-<!-- Thumbnails -->
-<div class="container mt-1 mb-2">
-  <div class="row g-3 text-center justify-content-center">
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedulegroup1.png" alt="Jadual Kumpulan 1"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedulegroup1.png" data-alt="Jadual Kumpulan 1" data-index="0">
+  <div class="row g-4 justify-content-center">
+    <!-- Kumpulan A -->
+    <div class="col-12 col-md-4">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-semibold text-center mb-2">Kumpulan A</div>
+        <div class="d-flex justify-content-center gap-2">
+          <img src="assets/schedulegroupA1.png" alt="Kumpulan A1" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupA1.png" data-alt="Kumpulan A1" data-index="0">
+          <img src="assets/schedulegroupA2.png" alt="Kumpulan A2" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupA2.png" data-alt="Kumpulan A2" data-index="1">
+        </div>
+      </div>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedulegroup2.png" alt="Jadual Kumpulan 2"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedulegroup2.png" data-alt="Jadual Kumpulan 2" data-index="1">
+
+    <!-- Kumpulan B -->
+    <div class="col-12 col-md-4">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-semibold text-center mb-2">Kumpulan B</div>
+        <div class="d-flex justify-content-center gap-2">
+          <img src="assets/schedulegroupB1.png" alt="Kumpulan B1" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupB1.png" data-alt="Kumpulan B1" data-index="2">
+          <img src="assets/schedulegroupB2.png" alt="Kumpulan B2" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupB2.png" data-alt="Kumpulan B2" data-index="3">
+        </div>
+      </div>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedulegroup3.png" alt="Jadual Kumpulan 3"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedulegroup3.png" data-alt="Jadual Kumpulan 3" data-index="2">
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedulegroup4.png" alt="Jadual Kumpulan 4"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedulegroup4.png" data-alt="Jadual Kumpulan 4" data-index="3">
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedulegroup5.png" alt="Jadual Kumpulan 5"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedulegroup5.png" data-alt="Jadual Kumpulan 5" data-index="4">
+
+    <!-- Kumpulan C -->
+    <div class="col-12 col-md-4">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-semibold text-center mb-2">Kumpulan C</div>
+        <div class="d-flex justify-content-center gap-2">
+          <img src="assets/schedulegroupC1.png" alt="Kumpulan C1" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupC1.png" data-alt="Kumpulan C1" data-index="4">
+          <img src="assets/schedulegroupC2.png" alt="Kumpulan C2" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupC2.png" data-alt="Kumpulan C2" data-index="5">
+          <img src="assets/schedulegroupC3.png" alt="Kumpulan C3" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedulegroupC3.png" data-alt="Kumpulan C3" data-index="6">
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Title -->
-<div class="container text-center mt-4">
-  <h5 class="fw-semibold mb-2">Jadual Pusingan Kedua</h5>
-</div>
+<div class="container text-center mt-5">
+  <h5 class="fw-semibold mb-3">Jadual Pusingan Kedua</h5>
 
-<!-- Thumbnails -->
-<div class="container mt-1 mb-2">
-  <div class="row g-3 text-center justify-content-center">
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedule2round1.png" alt="Jadual Pusingan Kedua 1"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedule2round1.png" data-alt="Jadual Pusingan Kedua 1" data-index="5">
+  <!-- Suku Akhir & Separuh Akhir -->
+  <div class="row g-4 justify-content-center mb-4">
+    <!-- Suku Akhir -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Suku Akhir</h6>
+        <img src="assets/schedule2round1.png" alt="Suku Akhir 1" class="img-thumbnail w-100 mb-2 modal-trigger"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedule2round1.png" data-alt="Suku Akhir 1" data-index="7">
+        <img src="assets/schedule2round2.png" alt="Suku Akhir 2" class="img-thumbnail w-100 modal-trigger"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedule2round2.png" data-alt="Suku Akhir 2" data-index="8">
+      </div>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedule2round2.png" alt="Jadual Pusingan Kedua 2"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedule2round2.png" data-alt="Jadual Pusingan Kedua 2" data-index="6">
+
+    <!-- Separuh Akhir -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Separuh Akhir</h6>
+        <img src="assets/schedule2round3.png" alt="Separuh Akhir" class="img-thumbnail w-100 modal-trigger"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedule2round3.png" data-alt="Separuh Akhir" data-index="9">
+      </div>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedule2round3.png" alt="Jadual Pusingan Kedua 3"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedule2round3.png" data-alt="Jadual Pusingan Kedua 3" data-index="7">
+  </div>
+
+  <!-- Tempat Ke-3 & Akhir -->
+  <div class="row g-4 justify-content-center">
+    <!-- Tempat ke-3 & ke-4 -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Tempat Ke-3 & Ke-4</h6>
+        <img src="assets/schedule2round4.png" alt="Tempat Ke-3" class="img-thumbnail w-100 modal-trigger"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedule2round4.png" data-alt="Tempat Ke-3" data-index="10">
+      </div>
     </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedule2round4.png" alt="Jadual Pusingan Kedua 4"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedule2round4.png" data-alt="Jadual Pusingan Kedua 4" data-index="8">
-    </div>
-    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-      <img src="assets/schedule2round5.png" alt="Jadual Pusingan Kedua 5"
-           class="img-thumbnail modal-trigger w-100"
-           style="cursor: pointer;"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-img="assets/schedule2round5.png" data-alt="Jadual Pusingan Kedua 5" data-index="9">
+
+    <!-- Akhir -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Perlawanan Akhir</h6>
+        <img src="assets/schedule2round5.png" alt="Akhir" class="img-thumbnail w-100 modal-trigger"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/schedule2round5.png" data-alt="Akhir" data-index="11">
+      </div>
     </div>
   </div>
 </div>
