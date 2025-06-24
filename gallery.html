@@ -26,6 +26,12 @@
     .tab { cursor: pointer; padding: 10px 20px; margin: 0 5px; background: #e9ecef; border-radius: 5px; }
     .tab.active { background: #b5a167; color: white; font-weight: bold; }
 
+    img.img-thumbnail {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
     #prevBtn, #nextBtn {
       width: 48px;
       height: 48px;
@@ -179,11 +185,12 @@ function renderGallery(day) {
   modalImages.forEach((img, idx) => {
     const div = document.createElement('div');
     div.className = 'col-6 col-sm-4 col-md-3 col-lg-2';
-    div.innerHTML = `
-      <img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100 modal-trigger"
-        data-bs-toggle="modal" data-bs-target="#imageModal"
-        data-index="${idx}" data-download="${img.download}">
-    `;
+div.innerHTML = `
+  <img src="${img.url}" alt="${img.name}" referrerpolicy="no-referrer"
+    class="img-thumbnail w-100 modal-trigger"
+    data-bs-toggle="modal" data-bs-target="#imageModal"
+    data-index="${idx}" data-download="${img.download}">
+`;
     galleryContainer.appendChild(div);
   });
 }
@@ -224,6 +231,7 @@ imageModal.addEventListener('hidden.bs.modal', function () {
 
 function updateModalImage() {
   const img = modalImages[currentIndex];
+  modalImage.setAttribute('referrerpolicy', 'no-referrer'); // <-- move here
   modalImage.src = img.url;
   modalImage.alt = img.name;
   downloadBtn.href = img.download || img.url;
