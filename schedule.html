@@ -238,9 +238,6 @@
         <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
           <i class="bi bi-download"></i> Muat Turun
         </a>
-        <button id="fullscreenToggle" class="btn btn-light btn-sm">
-          <i class="bi bi-arrows-fullscreen"></i> Fullscreen
-        </button>
         <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
@@ -284,7 +281,6 @@
   const modalImage = document.getElementById('modalImage');
   const panzoomElem = document.getElementById('panzoom');
   const downloadBtn = document.getElementById('downloadBtn');
-  const fullscreenToggle = document.getElementById('fullscreenToggle');
   const modalTriggers = document.querySelectorAll('.modal-trigger');
 
   let currentIndex = 0;
@@ -326,15 +322,6 @@
     e.stopPropagation();
     currentIndex = (currentIndex + 1) % images.length;
     updateModalImage();
-  });
-
-  fullscreenToggle.addEventListener('click', function (e) {
-    e.stopPropagation();
-    if (!document.fullscreenElement) {
-      modalImage.requestFullscreen();
-    } else {
-      document.exitFullscreen();
-    }
   });
 </script>
 </body>
