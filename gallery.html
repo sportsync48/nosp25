@@ -8,6 +8,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 
   <style>
     body { font-family: 'Poppins', sans-serif; }
@@ -22,6 +23,28 @@
     .header-section { background-color: #000000; padding: 30px 0; text-align: center; margin-bottom: 1rem; }
     .header-section h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #ffffff; }
     .header-section p { font-size: 1.2rem; color: #ffffff; }
+    .tab { cursor: pointer; padding: 10px 20px; margin: 0 5px; background: #e9ecef; border-radius: 5px; }
+    .tab.active { background: #b5a167; color: white; font-weight: bold; }
+
+    #prevBtn, #nextBtn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      aspect-ratio: 1 / 1;
+    }
+
+    #prevBtn i, #nextBtn i {
+      font-size: 1.25rem;
+    }
+
+    #prevBtn:hover, #nextBtn:hover {
+      background-color: #e9ecef;
+    }
   </style>
 </head>
 <body>
@@ -77,20 +100,33 @@
 
 <!-- Tabs -->
 <div class="d-flex justify-content-center mb-4 mt-4">
-  <div class="tab active" data-day="hariPertama">Hari Pertama</div>
-  <div class="tab" data-day="hariKedua">Hari Kedua</div>
-  <div class="tab" data-day="hariKetiga">Hari Ketiga</div>
+  <div class="tab active" data-day="Hari Pertama">Hari Pertama</div>
+  <div class="tab" data-day="Hari Kedua">Hari Kedua</div>
+  <div class="tab" data-day="Hari Ketiga">Hari Ketiga</div>
 </div>
 
-<div class="row g-3 justify-content-center" id="galleryContainer"></div>
+<div class="row g-3 justify-content-center px-3" id="galleryContainer"></div>
 
-<!-- Modal for fullscreen image -->
+<!-- Modal -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content bg-transparent border-0">
-      <button type="button" class="btn-close btn-close-white m-3 ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
-      <div class="modal-body d-flex justify-content-center align-items-center">
-        <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;">
+      <div class="position-absolute top-0 end-0 m-3 z-3 d-flex gap-2">
+        <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
+          <i class="bi bi-download"></i> Muat Turun
+        </a>
+        <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="position-absolute top-50 start-0 translate-middle-y z-3">
+        <button id="prevBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-left"></i></button>
+      </div>
+      <div class="position-absolute top-50 end-0 translate-middle-y z-3">
+        <button id="nextBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="modal-body d-flex justify-content-center align-items-center p-0" id="zoomWrapper" data-bs-dismiss="modal">
+        <div id="panzoom" onclick="event.stopPropagation();" style="touch-action: pan-y;">
+          <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;" />
+        </div>
       </div>
     </div>
   </div>
@@ -111,12 +147,20 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const galleryApiUrl = 'https://script.google.com/macros/s/AKfycbwggED8V8cd5K4sWdLfzW47s4ZnIRH5yoyw5dsEjpH3njzp8sSqz7oOKc4k5_bvCzHoag/exec';
+const galleryApiUrl = 'https://script.google.com/macros/s/AKfycbwggED8V8cd5K4sWdLfzW47s4ZnIRH5yoyw5dsEjpH3njzp8sSqz7oOKc4k5_bvCzHoag/exec'; // Replace with your Apps Script URL
 
 let allImages = {};
 let currentDay = 'Hari Pertama';
+let currentIndex = 0;
+let modalImages = [];
 
-// Fetch images on load
+const galleryContainer = document.getElementById('galleryContainer');
+const modalImage = document.getElementById('modalImage');
+const downloadBtn = document.getElementById('downloadBtn');
+const panzoomElem = document.getElementById('panzoom');
+let panzoomInstance;
+
+// Load images
 fetch(galleryApiUrl)
   .then(res => res.json())
   .then(data => {
@@ -124,24 +168,23 @@ fetch(galleryApiUrl)
     renderGallery(currentDay);
   });
 
-// Render selected day's gallery
 function renderGallery(day) {
   currentDay = day;
-  const container = document.getElementById('galleryContainer');
-  container.innerHTML = '';
-  (allImages[day] || []).forEach((img, idx) => {
+  galleryContainer.innerHTML = '';
+  modalImages = allImages[day] || [];
+
+  modalImages.forEach((img, idx) => {
     const div = document.createElement('div');
     div.className = 'col-6 col-sm-4 col-md-3 col-lg-2';
     div.innerHTML = `
-      <img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100"
-           data-bs-toggle="modal" data-bs-target="#imageModal"
-           data-index="${idx}" data-download="${img.download}">
+      <img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100 modal-trigger"
+        data-bs-toggle="modal" data-bs-target="#imageModal"
+        data-index="${idx}" data-download="${img.download}">
     `;
-    container.appendChild(div);
+    galleryContainer.appendChild(div);
   });
 }
 
-// Tab click
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -150,13 +193,70 @@ document.querySelectorAll('.tab').forEach(tab => {
   });
 });
 
-  // Show image in modal
-  document.addEventListener('click', function(e) {
-    if (e.target.matches('[data-bs-target="#imageModal"]')) {
-      const img = e.target;
-      document.getElementById('modalImage').src = img.src;
-    }
-  });
+const imageModal = document.getElementById('imageModal');
+
+imageModal.addEventListener('show.bs.modal', function (e) {
+  const trigger = e.relatedTarget;
+  currentIndex = parseInt(trigger.dataset.index);
+  updateModalImage();
+});
+
+imageModal.addEventListener('shown.bs.modal', function () {
+  if (panzoomInstance) panzoomInstance.destroy();
+  panzoomInstance = Panzoom(panzoomElem, { maxScale: 5, minScale: 1, contain: 'outside' });
+  panzoomElem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+});
+
+imageModal.addEventListener('hidden.bs.modal', function () {
+  if (panzoomInstance) panzoomInstance.reset();
+});
+
+function updateModalImage() {
+  const img = modalImages[currentIndex];
+  modalImage.src = img.url;
+  modalImage.alt = img.name;
+  downloadBtn.href = img.download || img.url;
+}
+
+document.getElementById('prevBtn').addEventListener('click', function (e) {
+  e.stopPropagation();
+  currentIndex = (currentIndex - 1 + modalImages.length) % modalImages.length;
+  updateModalImage();
+});
+
+document.getElementById('nextBtn').addEventListener('click', function (e) {
+  e.stopPropagation();
+  currentIndex = (currentIndex + 1) % modalImages.length;
+  updateModalImage();
+});
+
+// Swipe support
+let touchStartX = 0, touchEndX = 0;
+
+modalImage.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+modalImage.addEventListener('touchend', e => {
+  touchEndX = e.changedTouches[0].screenX;
+  const swipeThreshold = 50;
+  if (panzoomInstance && panzoomInstance.getScale() > 1) return;
+  if (touchEndX < touchStartX - swipeThreshold) {
+    currentIndex = (currentIndex + 1) % modalImages.length;
+    updateModalImage();
+  } else if (touchEndX > touchStartX + swipeThreshold) {
+    currentIndex = (currentIndex - 1 + modalImages.length) % modalImages.length;
+    updateModalImage();
+  }
+});
+
+// Double-tap to reset
+let lastTap = 0;
+modalImage.addEventListener('touchend', function (e) {
+  const now = new Date().getTime();
+  if (now - lastTap < 300) {
+    panzoomInstance?.reset();
+    e.preventDefault();
+  }
+  lastTap = now;
+});
 </script>
 </body>
 </html>
