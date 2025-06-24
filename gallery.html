@@ -22,12 +22,6 @@
     .header-section { background-color: #000000; padding: 30px 0; text-align: center; margin-bottom: 1rem; }
     .header-section h1 { font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #ffffff; }
     .header-section p { font-size: 1.2rem; color: #ffffff; }
-    .tab { padding: 10px 20px; cursor: pointer; border: 1px solid #ccc; background-color: #f8f8f8; margin: 0 5px; }
-    .tab.active { background-color: #b5a167; color: white; font-weight: bold; }
-    .gallery-container img { cursor: pointer; border-radius: 8px; object-fit: cover; max-width: 100%; height: auto; transition: transform 0.3s ease; }
-    .gallery-container img:hover { transform: scale(1.03); }
-    .modal-content { background: transparent; border: none; }
-    .modal-image { max-width: 90vw; max-height: 85vh; object-fit: contain; }
   </style>
 </head>
 <body>
@@ -64,8 +58,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Statistik Pemain</a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
-            <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
+            <li><a class="dropdown-item" href="batter.html">Pemukul</a></li>
+            <li><a class="dropdown-item" href="pitcher.html">Pembaling</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link active" href="gallery.html">Galeri</a></li>
@@ -88,35 +82,13 @@
   <div class="tab" data-day="hariKetiga">Hari Ketiga</div>
 </div>
 
-<!-- Gallery Container -->
-<div class="container">
-  <div class="row g-3 justify-content-center" id="galleryContainer"></div>
-</div>
+<div class="row g-3 justify-content-center" id="galleryContainer"></div>
 
-<!-- Modal -->
+<!-- Modal for fullscreen image -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content bg-transparent border-0">
-
-      <!-- Controls -->
-      <div class="position-absolute top-0 end-0 m-3 z-3 d-flex gap-2">
-        <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
-          <i class="bi bi-download"></i> Muat Turun
-        </a>
-        <button id="fullscreenToggle" class="btn btn-light btn-sm">
-          <i class="bi bi-arrows-fullscreen"></i> Fullscreen
-        </button>
-        <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <div class="position-absolute top-50 start-0 translate-middle-y z-3">
-        <button onclick="navigate(-1)" class="btn btn-light rounded-circle"><i class="bi bi-chevron-left"></i></button>
-      </div>
-      <div class="position-absolute top-50 end-0 translate-middle-y z-3">
-        <button onclick="navigate(1)" class="btn btn-light rounded-circle"><i class="bi bi-chevron-right"></i></button>
-      </div>
-
-      <!-- Image -->
+      <button type="button" class="btn-close btn-close-white m-3 ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
       <div class="modal-body d-flex justify-content-center align-items-center">
         <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;">
       </div>
@@ -139,74 +111,52 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-const galleryApiUrl = 'https://script.google.com/macros/s/AKfycbzwYUYGHnw_KG7UMMHfRXhRvz7LllsEw1TNjyB50DKNwY9i5bEfjQXjVB1JODZtjeKb_g/exec';
+const galleryApiUrl = 'https://script.google.com/macros/s/AKfycbwggED8V8cd5K4sWdLfzW47s4ZnIRH5yoyw5dsEjpH3njzp8sSqz7oOKc4k5_bvCzHoag/exec';
 
-let currentImages = [];
-let currentIndex = 0;
+let allImages = {};
+let currentDay = 'Hari Pertama';
 
-// Fetch images from Apps Script and initialize gallery
+// Fetch images on load
 fetch(galleryApiUrl)
   .then(res => res.json())
-  .then(images => {
-    currentImages = images;
-    renderGallery(); // Render all on load (optional: filter later)
+  .then(data => {
+    allImages = data;
+    renderGallery(currentDay);
   });
 
-// Render the full gallery (you can enhance it to filter by day)
-function renderGallery() {
+// Render selected day's gallery
+function renderGallery(day) {
+  currentDay = day;
   const container = document.getElementById('galleryContainer');
   container.innerHTML = '';
-  currentImages.forEach((img, idx) => {
+  (allImages[day] || []).forEach((img, idx) => {
     const div = document.createElement('div');
     div.className = 'col-6 col-sm-4 col-md-3 col-lg-2';
     div.innerHTML = `
-      <img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100" 
-           data-bs-toggle="modal" data-bs-target="#imageModal" 
+      <img src="${img.url}" alt="${img.name}" class="img-thumbnail w-100"
+           data-bs-toggle="modal" data-bs-target="#imageModal"
            data-index="${idx}" data-download="${img.download}">
     `;
     container.appendChild(div);
   });
 }
 
-// Show selected image in modal
-function showImage(index) {
-  const img = currentImages[index];
-  if (!img) return;
-  currentIndex = index;
-  document.getElementById('modalImage').src = img.url;
-  document.getElementById('downloadBtn').href = img.download;
-}
-
-// Navigate modal
-function navigate(direction) {
-  currentIndex = (currentIndex + direction + currentImages.length) % currentImages.length;
-  showImage(currentIndex);
-}
-
-// Modal event
-document.getElementById('imageModal').addEventListener('show.bs.modal', function (e) {
-  const index = parseInt(e.relatedTarget.getAttribute('data-index'));
-  showImage(index);
+// Tab click
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    renderGallery(tab.dataset.day);
+  });
 });
 
-// Close modal on body click
-document.querySelector('.modal-body').addEventListener('click', function (e) {
-  const isClickInsideImage = e.target.closest('#modalImage');
-  const isClickInsideArrow = e.target.closest('.modal-arrow');
-  if (!isClickInsideImage && !isClickInsideArrow) {
-    bootstrap.Modal.getInstance(document.getElementById('imageModal'))?.hide();
-  }
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', function(e) {
-  const modal = document.getElementById('imageModal');
-  if (modal.classList.contains('show')) {
-    if (e.key === 'ArrowRight') navigate(1);
-    if (e.key === 'ArrowLeft') navigate(-1);
-    if (e.key === 'Escape') bootstrap.Modal.getInstance(modal)?.hide();
-  }
-});
+  // Show image in modal
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('[data-bs-target="#imageModal"]')) {
+      const img = e.target;
+      document.getElementById('modalImage').src = img.src;
+    }
+  });
 </script>
 </body>
 </html>
