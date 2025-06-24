@@ -99,10 +99,10 @@
 </div>
 
 <!-- Tabs -->
-<div class="d-flex justify-content-center mb-4 mt-4">
-  <div class="tab active" data-day="Hari Pertama">Hari Pertama</div>
-  <div class="tab" data-day="Hari Kedua">Hari Kedua</div>
-  <div class="tab" data-day="Hari Ketiga">Hari Ketiga</div>
+<div class="d-flex justify-content-center mb-4 mt-4 flex-wrap gap-2">
+  <button class="tab btn btn-outline-dark active" data-day="Hari Pertama">Hari Pertama</button>
+  <button class="tab btn btn-outline-dark" data-day="Hari Kedua">Hari Kedua</button>
+  <button class="tab btn btn-outline-dark" data-day="Hari Ketiga">Hari Ketiga</button>
 </div>
 
 <div class="row g-3 justify-content-center px-3" id="galleryContainer"></div>
@@ -185,6 +185,22 @@ function renderGallery(day) {
   });
 }
 
+// Preload all images in the background (after fetch)
+function preloadAllImages(imagesByDay) {
+  Object.values(imagesByDay).flat().forEach(img => {
+    const preImg = new Image();
+    preImg.src = img.url;
+  });
+}
+
+fetch(galleryApiUrl)
+  .then(res => res.json())
+  .then(data => {
+    allImages = data;
+    preloadAllImages(data);  // Preload images
+    renderGallery(currentDay);
+  });
+  
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
     document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
