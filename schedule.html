@@ -266,7 +266,7 @@
 
       <!-- Image Zoom Container -->
       <div class="modal-body d-flex justify-content-center align-items-center p-0" id="zoomWrapper" data-bs-dismiss="modal">
-        <div id="panzoom" onclick="event.stopPropagation();" style="touch-action: none;">
+        <div id="panzoom" onclick="event.stopPropagation();" style="touch-action: pan-y;">
           <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;" />
         </div>
       </div>
@@ -342,32 +342,33 @@
   let touchStartX = 0;
   let touchEndX = 0;
 
+  const modalImg = document.getElementById('modalImage');
+
+  modalImg.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  modalImg.addEventListener('touchend', function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+
   function handleGesture() {
-    const swipeThreshold = 50; // Minimum distance in px for a valid swipe
+    const swipeThreshold = 50; // px
+    const scale = panzoomInstance ? panzoomInstance.getScale() : 1;
+
+    if (scale > 1) return; // Don't swipe if zoomed in
 
     if (touchEndX < touchStartX - swipeThreshold) {
-      // Swipe left
       currentIndex = (currentIndex + 1) % images.length;
       updateModalImage();
     }
 
     if (touchEndX > touchStartX + swipeThreshold) {
-      // Swipe right
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       updateModalImage();
     }
   }
-
-  const zoomWrapper = document.getElementById('zoomWrapper');
-
-  zoomWrapper.addEventListener('touchstart', function (e) {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  zoomWrapper.addEventListener('touchend', function (e) {
-    touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
-  });
 </script>
 </body>
 </html>
