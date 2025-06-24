@@ -76,15 +76,21 @@
     #prevBtn, #nextBtn {
       width: 48px;
       height: 48px;
-      border-radius: 50% !important;
+      border-radius: 50%;
+      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 0;
+      border: none;
+      aspect-ratio: 1 / 1; /* Ensures it's always a square */
     }
 
     #prevBtn i, #nextBtn i {
       font-size: 1.25rem;
+    }
+
+    #prevBtn:hover, #nextBtn:hover {
+      background-color: #e9ecef;
     }
 
   </style>
