@@ -160,12 +160,13 @@ const downloadBtn = document.getElementById('downloadBtn');
 const panzoomElem = document.getElementById('panzoom');
 let panzoomInstance;
 
-// Load images
+// Load and preload images in one fetch
 fetch(galleryApiUrl)
   .then(res => res.json())
   .then(data => {
     allImages = data;
-    renderGallery(currentDay);
+    preloadAllImages(data);  // Preload first
+    renderGallery(currentDay); // Then render
   });
 
 function renderGallery(day) {
@@ -192,14 +193,6 @@ function preloadAllImages(imagesByDay) {
     preImg.src = img.url;
   });
 }
-
-fetch(galleryApiUrl)
-  .then(res => res.json())
-  .then(data => {
-    allImages = data;
-    preloadAllImages(data);  // Preload images
-    renderGallery(currentDay);
-  });
   
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
