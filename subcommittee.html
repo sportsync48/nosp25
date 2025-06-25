@@ -42,15 +42,20 @@
         color: #ffc107 !important; font-weight: 600;
       }
       .header-section {
-        background-color: #000000;
-        padding: 30px 0; text-align: center;
-      }
-      .header-section h1 {
-        font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem; color: #ffffff;
-      }
-      .header-section p {
-        font-size: 1.2rem; color: #ffffff;
-      }
+      background-color: #000000;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .header-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #ffffff;
+
+    }
+    .header-section p {
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
       .card {
         border: none; border-radius: 20px;
         background: rgba(255, 255, 255, 0.9);
@@ -115,7 +120,8 @@
       footer a:hover { color: #ffc107; }
     </style>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
+
     <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm">
   <div class="container">
@@ -155,8 +161,8 @@
             Statistik Pemain
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
-            <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
+            <li><a class="dropdown-item" href="batter.html">Pemukul</a></li>
+            <li><a class="dropdown-item" href="pitcher.html">Pembaling</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
@@ -243,7 +249,7 @@
 </main>
 
     <!-- Sticky Footer -->
-    <footer class="text-center py-4">
+    <footer class="text-center py-4 mt-auto">
       <div class="container">
         <p class="mb-2">© NOSP Secretariat | National Open Slowpitch 2025</p>
         <div>
