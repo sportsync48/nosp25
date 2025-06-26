@@ -677,6 +677,10 @@
     });
 
     panzoomElem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+
+    // Force initial center after panzoom is ready
+    panzoomInstance.zoom(1);
+    panzoomInstance.pan(0, 0);
   });
 
   modal.addEventListener('hidden.bs.modal', function () {
@@ -686,8 +690,8 @@
   function updateModalImage() {
     modalImage.onload = () => {
       if (panzoomInstance) {
-        panzoomInstance.reset();
-        panzoomInstance.pan(0, 0);
+        panzoomInstance.zoom(1); // Reset zoom
+        panzoomInstance.pan(0, 0); // Center image
       }
     };
     modalImage.src = images[currentIndex].src;
@@ -750,6 +754,5 @@
     lastTapTime = currentTime;
   });
 </script>
-
 </body>
 </html>
