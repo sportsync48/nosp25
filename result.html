@@ -677,14 +677,6 @@
     });
 
     panzoomElem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
-
-    // Ensure zoom and pan reset *after* image fully renders
-    requestAnimationFrame(() => {
-      if (panzoomInstance) {
-        panzoomInstance.zoom(1);
-        panzoomInstance.pan(0, 0);
-      }
-    });
   });
 
   modal.addEventListener('hidden.bs.modal', function () {
@@ -693,12 +685,9 @@
 
   function updateModalImage() {
     modalImage.onload = () => {
-      requestAnimationFrame(() => {
-        if (panzoomInstance) {
-          panzoomInstance.zoom(1); // Reset zoom
-          panzoomInstance.pan(0, 0); // Center image
-        }
-      });
+      if (panzoomInstance) {
+        panzoomInstance.reset(); // Cleanly reset zoom and pan after image loads
+      }
     };
     modalImage.src = images[currentIndex].src;
     modalImage.alt = images[currentIndex].alt;
