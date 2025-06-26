@@ -3,12 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kedudukan | National Open Slowpitch 2025</title>
+  <title>Kedudukan Pasukan | National Open Slowpitch 2025</title>
+  <meta name="description" content="Kedudukan pasukan kejohanan National Open Slowpitch 2025">
 
-  <!-- Bootstrap & Icons -->
+  <!-- Favicon & Apple Touch Icon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/nosp25logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/nosp25logo.png">
+
+  <!-- Open Graph (Facebook, WhatsApp) -->
+  <meta property="og:site_name" content="National Open Slowpitch 2025" />
+  <meta property="og:title" content="Kedudukan Pasukan | National Open Slowpitch 2025" />
+  <meta property="og:description" content="Semak kedudukan pasukan kejohanan NOSP 2025 di sini" />
+  <meta property="og:image" content="https://raw.githubusercontent.com/sportsync48/nosp25/main/assets/nosp25logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:url" content="https://sportsync48.github.io/nosp25/schedule.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kedudukan Pasukan | National Open Slowpitch 2025" />
+  <meta name="twitter:description" content="Semak kedudukan pasukan kejohanan NOSP 2025 di sini" />
+  <meta name="twitter:image" content="https://raw.githubusercontent.com/sportsync48/nosp25/main/assets/nosp25logo.png" />
+
+  <!-- Fonts & Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+
+  <!-- Panzoom -->
+  <script src="https://cdn.jsdelivr.net/npm/@panzoom/panzoom@9.4.0/dist/panzoom.min.js"></script>
 
   <style>
     body {
@@ -30,8 +55,22 @@
       font-weight: 600;
     }
 
-    main {
-      padding: 4rem 0;
+    .header-section {
+      background-color: #000000;
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .header-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+
+    .header-section p {
+      font-size: 1.2rem;
+      color: #ffffff;
     }
 
     footer {
@@ -48,9 +87,37 @@
     footer a:hover {
       color: #ffc107;
     }
+
+    .group-img {
+      width: 300px;
+      height: 240px;
+      object-fit: cover;
+      cursor: pointer;
+    }
+
+    #prevBtn, #nextBtn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      aspect-ratio: 1 / 1; /* Ensures it's always a square */
+    }
+
+    #prevBtn i, #nextBtn i {
+      font-size: 1.25rem;
+    }
+
+    #prevBtn:hover, #nextBtn:hover {
+      background-color: #e9ecef;
+    }
+
   </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm">
@@ -76,7 +143,7 @@
           </ul>
         </li>
 	<li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Kejohanan
           </a>
           <ul class="dropdown-menu">
@@ -91,8 +158,8 @@
             Statistik Pemain
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#batter">Pemukul</a></li>
-            <li><a class="dropdown-item" href="#pitcher">Pembaling</a></li>
+            <li><a class="dropdown-item" href="batter.html">Pemukul</a></li>
+            <li><a class="dropdown-item" href="pitcher.html">Pembaling</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
@@ -102,14 +169,131 @@
   </div>
 </nav>
 
-<!-- Placeholder Content -->
-<main class="container text-center">
-  <h1 class="mb-4">Selamat Datang!</h1>
-  <p class="lead">Ini adalah halaman rasmi untuk National Open Slowpitch 2025. Kandungan akan ditambah di sini tidak lama lagi.</p>
-</main>
+<!-- Header -->
+<header class="header-section">
+  <h1>Kedudukan Pasukan</h1>
+  <p>Peringkat Kumpulan & Pusingan Kedua</p>
+</header>
+
+<!-- Kedudukan Pasukan Kumpulan -->
+<div class="container text-center mt-4">
+  <h5 class="fw-semibold mb-3">Peringkat Kumpulan</h5>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Kumpulan A -->
+    <div class="col-12 col-md-4">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-semibold text-center mb-2">Kumpulan A</div>
+        <div class="d-flex justify-content-center gap-2">
+          <img src="assets/standings/standingsgroupA.png" alt="Kumpulan A" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingsgroupA.png" data-alt="Kumpulan A" data-index="0">
+        </div>
+      </div>
+    </div>
+
+    <!-- Kumpulan B -->
+    <div class="col-12 col-md-4">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-semibold text-center mb-2">Kumpulan B</div>
+        <div class="d-flex justify-content-center gap-2">
+          <img src="assets/standings/standingsgroupB.png" alt="Kumpulan B" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingsgroupB.png" data-alt="Kumpulan B" data-index="1">
+        </div>
+      </div>
+    </div>
+
+    <!-- Kumpulan C -->
+    <div class="col-12 col-md-4">
+      <div class="border rounded p-3 h-100">
+        <div class="fw-semibold text-center mb-2">Kumpulan C</div>
+        <div class="d-flex justify-content-center gap-2">
+          <img src="assets/standings/standingsgroupC.png" alt="Kumpulan C" class="img-thumbnail modal-trigger group-img"
+               data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingsgroupC.png" data-alt="Kumpulan C" data-index="2">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container text-center mt-5 mb-3">
+  <h5 class="fw-semibold mb-3">Pusingan Kedua</h5>
+
+  <!-- Suku Akhir & Separuh Akhir -->
+  <div class="row g-4 justify-content-center mb-4">
+    <!-- Suku Akhir -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Suku Akhir</h6>
+        <img src="assets/standings/standingsquarter.png" alt="Suku Akhir" class="img-thumbnail modal-trigger group-img"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingsquarter.png" data-alt="Suku Akhir" data-index="3">
+      </div>
+    </div>
+
+    <!-- Separuh Akhir -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Separuh Akhir</h6>
+        <img src="assets/standings/standingssemi.png" alt="Separuh Akhir" class="img-thumbnail modal-trigger group-img"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingssemi.png" data-alt="Separuh Akhir" data-index="4">
+      </div>
+    </div>
+  </div>
+
+  <!-- Tempat Ke-3 & Ke-4 -->
+  <div class="row g-4 justify-content-center">
+    <!-- Tempat ke-3 & ke-4 -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Tempat Ke-3 & Ke-4</h6>
+        <img src="assets/standings/standingsthirdplace.png" alt="Tempat Ke-3" class="img-thumbnail modal-trigger group-img"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingsthirdplace.png" data-alt="Tempat Ke-3" data-index="5">
+      </div>
+    </div>
+
+    <!-- Akhir -->
+    <div class="col-12 col-md-6">
+      <div class="border rounded p-3 h-100">
+        <h6 class="fw-semibold mb-3">Perlawanan Akhir</h6>
+        <img src="assets/standings/standingsfinal.png" alt="Akhir" class="img-thumbnail modal-trigger group-img"
+             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/standings/standingsfinal.png" data-alt="Akhir" data-index="6">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content bg-transparent border-0">
+
+      <!-- Controls -->
+      <div class="position-absolute top-0 end-0 m-3 z-3 d-flex gap-2">
+        <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
+          <i class="bi bi-download"></i> Muat Turun
+        </a>
+        <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <!-- Navigation Arrows -->
+      <div class="position-absolute top-50 start-0 translate-middle-y z-3">
+        <button id="prevBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-left"></i></button>
+      </div>
+      <div class="position-absolute top-50 end-0 translate-middle-y z-3">
+        <button id="nextBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-right"></i></button>
+      </div>
+
+      <!-- Image Zoom Container -->
+      <div class="modal-body d-flex justify-content-center align-items-center p-0" id="zoomWrapper" data-bs-dismiss="modal">
+        <div id="panzoom" onclick="event.stopPropagation();" style="touch-action: pan-y;">
+          <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Footer -->
-<footer class="text-center py-4 mt-5">
+<footer class="text-center py-4 mt-auto">
   <div class="container">
     <p class="mb-2">© NOSP Secretariat | National Open Slowpitch 2025</p>
     <div>
@@ -121,8 +305,106 @@
   </div>
 </footer>
 
-<!-- Bootstrap JS -->
+<!-- Bootstrap Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Modal & Zoom Script -->
+<script>
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const panzoomElem = document.getElementById('panzoom');
+  const downloadBtn = document.getElementById('downloadBtn');
+  const modalTriggers = document.querySelectorAll('.modal-trigger');
+
+  let currentIndex = 0;
+  let panzoomInstance = null;
+  const images = Array.from(modalTriggers).map(trigger => ({
+    src: trigger.dataset.img,
+    alt: trigger.dataset.alt
+  }));
+
+  modal.addEventListener('show.bs.modal', function (e) {
+    const trigger = e.relatedTarget;
+    currentIndex = parseInt(trigger.dataset.index);
+    updateModalImage();
+  });
+
+  modal.addEventListener('shown.bs.modal', function () {
+    if (panzoomInstance) panzoomInstance.destroy();
+    panzoomInstance = Panzoom(panzoomElem, { maxScale: 5, minScale: 1, contain: 'outside' });
+    panzoomElem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
+  });
+
+  modal.addEventListener('hidden.bs.modal', function () {
+    if (panzoomInstance) panzoomInstance.reset();
+  });
+
+  function updateModalImage() {
+    modalImage.src = images[currentIndex].src;
+    modalImage.alt = images[currentIndex].alt;
+    downloadBtn.href = images[currentIndex].src;
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    updateModalImage();
+  });
+
+  document.getElementById('nextBtn').addEventListener('click', function (e) {
+    e.stopPropagation();
+    currentIndex = (currentIndex + 1) % images.length;
+    updateModalImage();
+  });
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  const modalImg = document.getElementById('modalImage');
+
+  modalImg.addEventListener('touchstart', function (e) {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+
+  modalImg.addEventListener('touchend', function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+  });
+
+  function handleGesture() {
+    const swipeThreshold = 50; // px
+    const scale = panzoomInstance ? panzoomInstance.getScale() : 1;
+
+    if (scale > 1) return; // Don't swipe if zoomed in
+
+    if (touchEndX < touchStartX - swipeThreshold) {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateModalImage();
+    }
+
+    if (touchEndX > touchStartX + swipeThreshold) {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateModalImage();
+    }
+  }
+
+    // Double-tap to reset zoom
+  let lastTapTime = 0;
+
+  modalImg.addEventListener('touchend', function (e) {
+    const currentTime = new Date().getTime();
+    const tapLength = currentTime - lastTapTime;
+
+    if (tapLength < 300 && tapLength > 0) {
+      // Double tap detected
+      if (panzoomInstance) {
+        panzoomInstance.reset();
+      }
+      e.preventDefault();
+    }
+
+    lastTapTime = currentTime;
+  });
+</script>
 </body>
 </html>
