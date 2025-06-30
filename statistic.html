@@ -148,13 +148,15 @@
           </ul>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle active" href="#" id="dropdownTournament" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kejohanan</a>
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownTournament" role="button" data-bs-toggle="dropdown" aria-expanded="false">Kejohanan</a>
           <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="rules.html">Peraturan</a></li>
             <li><a class="dropdown-item" href="groupdraw.html">Undian Kumpulan</a></li>
             <li><a class="dropdown-item" href="schedule.html">Jadual Perlawanan</a></li>
             <li><a class="dropdown-item" href="result.html">Keputusan Rasmi</a></li>
             <li><a class="dropdown-item" href="standings.html">Kedudukan Pasukan</a></li>
-            <li><a class="dropdown-item active" href="statistic.html">Statistik Pemain</a></li>
+            <li><a class="dropdown-item" href="statistic.html">Statistik Pemain</a></li>
+            <li><a class="dropdown-item" href="winner.html">Pemenang</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="gallery.html">Galeri</a></li>
@@ -167,21 +169,21 @@
 <!-- Header -->
 <header class="header-section">
   <h1>Statistik Pemain</h1>
-  <p>Pembaling, Pemukul dan Pemain Terbaik</p>
+  <p>5 Pembaling dan Pemukul Terbaik</p>
 </header>
 
 <div class="container text-center mt-3 mb-3">
   <div class="row g-4 justify-content-center">
-    <!-- Pembaling Terbaik -->
+    <!-- Top 5 Pitcher -->
     <div class="col-12 col-md-6">
       <div class="border rounded p-3 h-100">
-        <h6 class="fw-semibold mb-3">Pembaling Terbaik</h6>
+        <h6 class="fw-semibold mb-3"> Pembaling Terbaik</h6>
         <img src="assets/statistic/statpitcher.png" alt="Pembaling Terbaik" class="img-thumbnail modal-trigger group-img"
              data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/statistic/statpitcher.png" data-alt="Pembaling Terbaik" data-index="0">
       </div>
     </div>
 
-    <!-- Pemukul Terbaik -->
+    <!-- Top 5 Batter -->
     <div class="col-12 col-md-6">
       <div class="border rounded p-3 h-100">
         <h6 class="fw-semibold mb-3">Pemukul Terbaik</h6>
@@ -189,26 +191,6 @@
              data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/statistic/statbatter.png" data-alt="Pemukul Terbaik" data-index="1">
       </div>
     </div>
-
-    <!-- MVP Lelaki -->
-    <div class="col-12 col-md-6">
-      <div class="border rounded p-3 h-100">
-        <h6 class="fw-semibold mb-3">MVP Lelaki</h6>
-        <img src="assets/statistic/statmvpmale.png" alt="MVP Lelaki" class="img-thumbnail modal-trigger group-img"
-             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/statistic/statmvpmale.png" data-alt="MVP Lelaki" data-index="2">
-      </div>
-    </div>
-
-    <!-- MVP Perempuan -->
-    <div class="col-12 col-md-6">
-      <div class="border rounded p-3 h-100">
-        <h6 class="fw-semibold mb-3">MVP Perempuan</h6>
-        <img src="assets/statistic/statmvpfemale.png" alt="MVP Perempuan" class="img-thumbnail modal-trigger group-img"
-             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/statistic/statmvpfemale.png" data-alt="MVP Perempuan" data-index="3">
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
