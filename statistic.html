@@ -39,14 +39,12 @@
     body {
       font-family: 'Poppins', sans-serif;
     }
-
     nav.navbar {
       position: sticky;
       top: 0;
       z-index: 1030;
       background-color: #b5a167;
     }
-
     .navbar-nav .nav-link:hover,
     .navbar-nav .dropdown-item:hover,
     .navbar-nav .nav-link.active,
@@ -54,72 +52,97 @@
       color: #ffc107 !important;
       font-weight: 600;
     }
-
     .header-section {
       background-color: #000000;
       padding: 30px 0;
       text-align: center;
     }
-
     .header-section h1 {
       font-size: 2.5rem;
       font-weight: bold;
       margin-bottom: 0.5rem;
       color: #ffffff;
     }
-
     .header-section p {
       font-size: 1.2rem;
       color: #ffffff;
     }
-
+.flag-style {
+  width: 48px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 0.4rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+    .stat-card {
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      padding: 1rem;
+    }
+.stat-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  border-radius: 8px;
+}
+.stat-entry:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+    .stat-entry + .stat-entry {
+      border-top: 1px solid #ddd;
+    }
+    .stat-rank {
+      width: 5%;
+      font-weight: 500;
+    }
+    .stat-team {
+      width: 15%;
+    }
+    .stat-player {
+      width: 60%;
+    }
+    .stat-value {
+      width: 20%;
+      text-align: right;
+    }
+    .stat-player .name {
+      font-weight: 600;
+    }
+    .stat-player .desc {
+      font-size: 0.85rem;
+      color: #6c757d;
+    }
+    .stat-value .value {
+      font-weight: 700;
+    }
+    .stat-value .label {
+      font-size: 0.75rem;
+      color: #999;
+    }
     footer {
       background-color: #b2a367;
       color: black;
     }
-
     footer a {
       color: black;
       font-size: 1.4rem;
       margin: 0 0.5rem;
     }
-
     footer a:hover {
       color: #ffc107;
     }
-
-    .group-img {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      cursor: pointer;
-    }
-
-    #prevBtn, #nextBtn {
-      width: 48px;
-      height: 48px;
+    .rounded-circle {
       border-radius: 50%;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border: none;
-      aspect-ratio: 1 / 1; /* Ensures it's always a square */
+      object-fit: cover;
     }
-
-    #prevBtn i, #nextBtn i {
-      font-size: 1.25rem;
-    }
-
-    #prevBtn:hover, #nextBtn:hover {
-      background-color: #e9ecef;
-    }
-
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-bold" href="#">
@@ -166,59 +189,141 @@
   </div>
 </nav>
 
-<!-- Header -->
 <header class="header-section">
   <h1>Statistik Pemain</h1>
-  <p>5 Pembaling dan Pemukul Terbaik</p>
+  <p>Pembaling dan Pemukul Terbaik</p>
 </header>
 
-<div class="container text-center mt-3 mb-3">
-  <div class="row g-4 justify-content-center">
-    <!-- Top 5 Pitcher -->
-    <div class="col-12 col-md-6">
-      <div class="border rounded p-3 h-100">
-        <h6 class="fw-semibold mb-3"> Pembaling Terbaik</h6>
-        <img src="assets/statistic/statpitcher.png" alt="Pembaling Terbaik" class="img-thumbnail modal-trigger group-img"
-             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/statistic/statpitcher.png" data-alt="Pembaling Terbaik" data-index="0">
+<div class="container my-5">
+  <div class="row g-5">
+      <div class="col-md-6">
+      <div class="stat-card">
+        <h5 class="fw-bold mb-3">5 Pembaling Terbaik</h5>
+        <div class="stat-entry">
+          <div class="stat-rank">1</div>
+          <img src="assets/flags/terengganu.png" class="flag-style" alt="TRG Flag">
+          <div class="stat-player">
+            <div class="name">Y. Ridzuan</div>
+            <div class="desc">8 W, 118 K</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">1.74</div>
+            <div class="label">era</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">2</div>
+          <img src="assets/flags/kedah.png" class="flag-style" alt="KDH Flag">
+          <div class="stat-player">
+            <div class="name">M. Fried</div>
+            <div class="desc">10 W, 104 K</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">1.92</div>
+            <div class="label">era</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">3</div>
+          <img src="assets/flags/pahang.png" class="flag-style" alt="PHG Flag">
+          <div class="stat-player">
+            <div class="name">G. Crochet</div>
+            <div class="desc">7 W, 135 K</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">2.06</div>
+            <div class="label">era</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">4</div>
+          <img src="assets/flags/penang.png" class="flag-style" alt="PNG Flag">
+          <div class="stat-player">
+            <div class="name">J. deGrom</div>
+            <div class="desc">8 W, 94 K</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">2.08</div>
+            <div class="label">era</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">5</div>
+          <img src="assets/flags/kelantan.png" class="flag-style" alt="KTN Flag">
+          <div class="stat-player">
+            <div class="name">T. Skubal</div>
+            <div class="desc">10 W, 138 K</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">2.15</div>
+            <div class="label">era</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Top 5 Batter -->
-    <div class="col-12 col-md-6">
-      <div class="border rounded p-3 h-100">
-        <h6 class="fw-semibold mb-3">Pemukul Terbaik</h6>
-        <img src="assets/statistic/statbatter.png" alt="Pemukul Terbaik" class="img-thumbnail modal-trigger group-img"
-             data-bs-toggle="modal" data-bs-target="#imageModal" data-img="assets/statistic/statbatter.png" data-alt="Pemukul Terbaik" data-index="1">
-      </div>
-    </div>
-  </div>
- </div>
-
-<!-- Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content bg-transparent border-0">
-
-      <!-- Controls -->
-      <div class="position-absolute top-0 end-0 m-3 z-3 d-flex gap-2">
-        <a id="downloadBtn" href="#" download class="btn btn-light btn-sm">
-          <i class="bi bi-download"></i> Muat Turun
-        </a>
-        <button type="button" class="btn btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-
-      <!-- Navigation Arrows -->
-      <div class="position-absolute top-50 start-0 translate-middle-y z-3">
-        <button id="prevBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-left"></i></button>
-      </div>
-      <div class="position-absolute top-50 end-0 translate-middle-y z-3">
-        <button id="nextBtn" class="btn btn-light rounded-circle"><i class="bi bi-chevron-right"></i></button>
-      </div>
-
-      <!-- Image Zoom Container -->
-      <div class="modal-body d-flex justify-content-center align-items-center p-0" id="zoomWrapper" data-bs-dismiss="modal">
-        <div id="panzoom" onclick="event.stopPropagation();" style="touch-action: pan-y;">
-          <img id="modalImage" src="" alt="" class="img-fluid" style="max-height: 90vh; max-width: 90vw; object-fit: contain;" />
+<div class="col-md-6">
+      <div class="stat-card">
+        <h5 class="fw-bold mb-3">5 Pemukul Terbaik</h5>
+        <div class="stat-entry">
+          <div class="stat-rank">1</div>
+          <img src="assets/flags/kualalumpur.png" class="flag-style" alt="KUL Flag">
+          <div class="stat-player">
+            <div class="name">A. Judge</div>
+            <div class="desc">30 HR, 67 RBIs</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">.356</div>
+            <div class="label">avg</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">2</div>
+          <img src="assets/flags/terengganu.png" class="flag-style" alt="TRG Flag">
+          <div class="stat-player">
+            <div class="name">J. Wilson</div>
+            <div class="desc">9 HR, 40 RBIs</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">.338</div>
+            <div class="label">avg</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">3</div>
+          <img src="assets/flags/negerisembilan.png" class="flag-style" alt="NSN Flag">
+          <div class="stat-player">
+            <div class="name">J. Aranda</div>
+            <div class="desc">10 HR, 44 RBIs</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">.325</div>
+            <div class="label">avg</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">4</div>
+          <img src="assets/flags/pahang.png" class="flag-style" alt="PHG Flag">
+          <div class="stat-player">
+            <div class="name">J. Peña</div>
+            <div class="desc">11 HR, 40 RBIs</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">.322</div>
+            <div class="label">avg</div>
+          </div>
+        </div>
+        <div class="stat-entry">
+          <div class="stat-rank">5</div>
+          <img src="assets/flags/johor.png" class="flag-style" alt="JHR Flag">
+          <div class="stat-player">
+            <div class="name">A. Kirk</div>
+            <div class="desc">7 HR, 39 RBIs</div>
+          </div>
+          <div class="stat-value">
+            <div class="value">.315</div>
+            <div class="label">avg</div>
+          </div>
         </div>
       </div>
     </div>
@@ -240,104 +345,5 @@
 
 <!-- Bootstrap Bundle -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- Modal & Zoom Script -->
-<script>
-  const modal = document.getElementById('imageModal');
-  const modalImage = document.getElementById('modalImage');
-  const panzoomElem = document.getElementById('panzoom');
-  const downloadBtn = document.getElementById('downloadBtn');
-  const modalTriggers = document.querySelectorAll('.modal-trigger');
-
-  let currentIndex = 0;
-  let panzoomInstance = null;
-  const images = Array.from(modalTriggers).map(trigger => ({
-    src: trigger.dataset.img,
-    alt: trigger.dataset.alt
-  }));
-
-  modal.addEventListener('show.bs.modal', function (e) {
-    const trigger = e.relatedTarget;
-    currentIndex = parseInt(trigger.dataset.index);
-    updateModalImage();
-  });
-
-  modal.addEventListener('shown.bs.modal', function () {
-    if (panzoomInstance) panzoomInstance.destroy();
-    panzoomInstance = Panzoom(panzoomElem, { maxScale: 5, minScale: 1, contain: 'outside' });
-    panzoomElem.parentElement.addEventListener('wheel', panzoomInstance.zoomWithWheel);
-  });
-
-  modal.addEventListener('hidden.bs.modal', function () {
-    if (panzoomInstance) panzoomInstance.reset();
-  });
-
-  function updateModalImage() {
-    modalImage.src = images[currentIndex].src;
-    modalImage.alt = images[currentIndex].alt;
-    downloadBtn.href = images[currentIndex].src;
-  }
-
-  document.getElementById('prevBtn').addEventListener('click', function (e) {
-    e.stopPropagation();
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    updateModalImage();
-  });
-
-  document.getElementById('nextBtn').addEventListener('click', function (e) {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % images.length;
-    updateModalImage();
-  });
-
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  const modalImg = document.getElementById('modalImage');
-
-  modalImg.addEventListener('touchstart', function (e) {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-
-  modalImg.addEventListener('touchend', function (e) {
-    touchEndX = e.changedTouches[0].screenX;
-    handleGesture();
-  });
-
-  function handleGesture() {
-    const swipeThreshold = 50; // px
-    const scale = panzoomInstance ? panzoomInstance.getScale() : 1;
-
-    if (scale > 1) return; // Don't swipe if zoomed in
-
-    if (touchEndX < touchStartX - swipeThreshold) {
-      currentIndex = (currentIndex + 1) % images.length;
-      updateModalImage();
-    }
-
-    if (touchEndX > touchStartX + swipeThreshold) {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
-      updateModalImage();
-    }
-  }
-
-    // Double-tap to reset zoom
-  let lastTapTime = 0;
-
-  modalImg.addEventListener('touchend', function (e) {
-    const currentTime = new Date().getTime();
-    const tapLength = currentTime - lastTapTime;
-
-    if (tapLength < 300 && tapLength > 0) {
-      // Double tap detected
-      if (panzoomInstance) {
-        panzoomInstance.reset();
-      }
-      e.preventDefault();
-    }
-
-    lastTapTime = currentTime;
-  });
-</script>
 </body>
 </html>
